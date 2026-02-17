@@ -1,10 +1,369 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Asal's Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-  <h1>Hello, I'm Asal 👋</h1>
-  <p>This is my personal website.</p>
+
+   <header>
+      <p class="logo">Hritik Gautam</p>
+      <div class="social-links">
+        <a href="#profile"><iconify-icon icon="tabler:alert-hexagon-filled" width="24" height="24"></iconify-icon></a>
+         <a onclick="showSidebar()"><iconify-icon icon="tabler:burger" width="24" height="24"></iconify-icon></a>    
+      </div>
+      <div class="sidebar">
+          <nav>
+              <ul>
+                  <li onclick="showSidebar()"><a href="#">Home</a></li>
+                  <li onclick="showSidebar()"><a href="#skills">Skills</a></li>
+                  <li onclick="showSidebar()"><a href="#projects">Projects</a></li>                
+                  <li onclick="showSidebar()"><a href="#team">Team</a></li>
+                  <li onclick="showSidebar()"><a href="#contact">Contact</a></li>
+              </ul>
+          </nav>
+      </div>
+    </header>
+    
+  <div class="container">    
+      <section class="hero">
+         <div id="particles-js"></div>
+        <div class="hero-image">
+          <img src="https://static.vecteezy.com/system/resources/previews/022/484/651/non_2x/happy-3d-student-boy-with-books-on-white-background-transparent-background-free-png.png?hl=en-US" alt="Omg">
+        </div>
+        
+        <div class="hero-content">
+          <h2>Hello, I'm <span>Hritik</span> Gautam</h2>
+          <p id="type"></p>
+          <sup>Bio</sup>
+          <p>A skilled Front-End Developer with expertise in creating responsive, user-friendly web applications. Proficient in HTML, CSS, JavaScript, and modern frameworks like React.</p>
+          <a href="#projects">View My Work <iconify-icon icon="tabler:arrow-badge-right-filled" width="24" height="24"></iconify-icon></a>        
+        </div>
+       <a href="#skills" class="scroll-down">
+            <iconify-icon icon="tabler:mouse" width="24" height="24"></iconify-icon>
+            Scroll Down
+        </a>
+      </section>
+      
+ <main>
+ 
+ <info id="profile">
+ 
+  <h2><iconify-icon icon="tabler:meteor" width="24" height="24"></iconify-icon> About Me</h2>
+  
+       <div  class="profile">
+          <img src="https://img.freepik.com/premium-vector/vector-male-character-standing-with-simple-minimalist-flat-design-style_995281-2559.jpg?semt=ais_hybrid&w=740&q=80&hl=en-US">
+          <sec>
+          <h3>Hritik Gautam</h3>
+          <p>Frontend developer</p>
+          </sec>
+         
+           <buttons>
+          <button class="msgbtn">    <a href="https://www.instagram.com/hritik_12gautam?igsh=dTNlOGM0MzJvdWZz">
+            Chat
+            </a></button>
+          <button> <a href="https://www.sololearn.com/profile/32122886/?ref=app">
+            Follow
+            </a></button>
+          </buttons>
+          
+          <span>
+              <p>Blogs</p>              
+              <p>Codes</p>
+              <p>Friends</p>
+              <h3>16</h3>
+              <h3>1k</h3>              
+              <h3>112</h3>
+          </span>        
+          
+      </div>
+</info>   
+
+    <section id="skills"  class="services">
+        <h2><iconify-icon icon="tabler:air-balloon" width="24" height="24"></iconify-icon> My Skills</h2>
+         
+        <div class="service-grid">
+          <div class="service-item">
+            <iconify-icon icon="tabler:code-circle-2" width="50" height="50"></iconify-icon>
+            <h3>Web Development</h3>
+               <span class="accent-line"></span>
+            <p>I am a web developer skilled in front-end technologies like HTML, CSS, JavaScript, and frameworks such as React. I also have experience in UI/UX design, Firebase integration, and optimizing web performance.</p>
+       
+          </div>
+          <div class="service-item">
+            <iconify-icon icon="tabler:paint" width="50" height="50"></iconify-icon>
+            <h3>UI/UX Design</h3>
+               <span class="accent-line"></span>
+            <p>I like UI/UX designer with a strong focus on creating intuitive and visually appealing user interfaces. I specialize in user-centered design, wireframing, prototyping, and ensuring seamless user experiences across web and mobile platforms.</p>
+          </div>
+          <div class="service-item">
+            <iconify-icon icon="tabler:database-heart" width="50" height="50"></iconify-icon>
+            <h3>Object Modling</h3>
+               <span class="accent-line"></span>
+            <p>I Know 3D modeler specializing in creating detailed and realistic models using Blender. I focus on character design, environment creation, and texturing to bring visual concepts to life for games, animations, and more.</p>
+          </div>
+            <div class="service-item">
+             <iconify-icon icon="tabler:cricket" width="50" height="50"></iconify-icon>
+            <h3>Sports</h3>
+               <span class="accent-line"></span>
+            <p>I am passionate about cricket, a dynamic sport where strategy and skill meet. I specialize in all-round performance, and love the challenge of competing and improving my game.</p>
+          </div>
+        </div>
+      </section>
+      
+      <section id="projects" class="projects">
+        <h2> <iconify-icon icon="tabler:code" width="24" height="24"></iconify-icon> Featured Projects</h2>
+        <div class="project-grid">
+          <div class="project-item">
+            <img src="https://media2.dev.to/dynamic/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fthepracticaldev.s3.amazonaws.com%2Fi%2Fvg6mmkv6hipscpi7pl0h.png?hl=en-US" alt="Project 1">
+            <div class="project-content">
+              <h3>RPS - GAME</h3>
+              <p>A Rock-Paper-Scissors Simple Game using Web. </p>
+              <a href="https://sololearn.com/compiler-playground/Wa9315bU4KN0/?ref=app">Visit Here</a>
+            </div>
+          </div>
+          <div class="project-item">
+            <img src="https://static.vecteezy.com/system/resources/previews/007/978/653/non_2x/coca-cola-popular-drink-brand-logo-vinnytsia-ukraine-may-16-202-free-vector.jpg?hl=en-US" alt="Project 2">
+            <div class="project-content">
+              <h3>Cocacola Site UI </h3>
+              <p>A Stunning UI design for cocacola site</p>
+              <a href="#">Visit Here</a>
+            </div>
+          </div>
+              <div class="project-item">
+            <img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/65cc51bea970eec77a7b7514_649ef21fa0c3ce91f77cf1ec_m3.jpeg?hl=en-US" alt="Project 1">
+            <div class="project-content">
+              <h3>Modern Healthcare Site</h3>
+              <p>Another Next lvl UI components for designing</p>
+              <a href="https://sololearn.com/compiler-playground/WLIT9UDPj581/?ref=app">Visit Here</a>
+            </div>
+          </div>
+          <div class="project-item">
+            <img src="https://stackdiary.com/wp-content/uploads/2022/01/Sololearn-mobile-coding-1200x437.png?hl=en-US" alt="Project 2">
+            <div class="project-content">
+              <h3>Sololearn Website Clone</h3>
+              <p>Clone projects help you to learn coding Fast.</p>
+              <a href="https://sololearn.com/compiler-playground/WYSkusofCrWW/?ref=app">Visit Here</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+   
+      <section id="team" class="team">
+        <h2><iconify-icon icon="tabler:affiliate" width="24" height="24"></iconify-icon> Our Team</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="https://static.vecteezy.com/system/resources/previews/022/484/651/non_2x/happy-3d-student-boy-with-books-on-white-background-transparent-background-free-png.png?hl=en-US" alt="John Doe">
+            <div class="team-info">
+        <h3>Hritik Gautam</h3>
+        <p>Frontend Developer</p>
+        <div class="team-social">
+           <a href="https://github.com/sujeet-12" aria-label="github">
+           <iconify-icon class="iconify" icon="tabler:brand-github" width="24" height="24"></iconify-icon>
+        </a>
+        <a href="https://codepen.io/sujeet-12" aria-label="codepen">
+            <iconify-icon class="iconify" icon="tabler:brand-codepen" width="24" height="24"></iconify-icon>
+        </a>     
+        </div>
+      </div>
+    </div>
+    <div class="team-member">
+      <img src="https://png.pngtree.com/png-vector/20231001/ourmid/pngtree-cartoon-three-dimensional-3d-cute-girl-doll-toy-model-decorative-pattern-png-image_10132155.png?hl=en-US" alt="Jane Smith">
+      <div class="team-info">
+        <h3>Payal</h3>
+        <p>Creative Ideas</p>
+        <div class="team-social">
+            <a href="#" aria-label="github">
+           <iconify-icon class="iconify" icon="tabler:brand-github" width="24" height="24"></iconify-icon>
+        </a>
+        <a href="#" aria-label="codepen">
+            <iconify-icon class="iconify" icon="tabler:brand-codepen" width="24" height="24"></iconify-icon>
+        </a>
+        </div>
+      </div>
+    </div>
+       <div class="team-member">
+      <img src="https://static.vecteezy.com/system/resources/previews/036/049/534/non_2x/3d-render-illustration-of-cute-boy-free-png.png?hl=en-US" alt="Jane Smith">
+      <div class="team-info">
+        <h3>Vansh Yadav</h3>
+        <p>Code Helper</p>
+        <div class="team-social">
+            <a href="#" aria-label="github">
+           <iconify-icon class="iconify" icon="tabler:brand-github" width="24" height="24"></iconify-icon>
+        </a>
+        <a href="#" aria-label="codepen">
+            <iconify-icon class="iconify" icon="tabler:brand-codepen" width="24" height="24"></iconify-icon>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="team-member">
+      <img src="https://png.pngtree.com/png-vector/20250531/ourmid/pngtree-cute-little-cartoon-girl-with-colorful-bouquet-of-flowers-png-image_16427013.png?hl=en-US" alt="Michael Johnson">
+      <div class="team-info">
+        <h3>Isha Gautam</h3>
+        <p>Update & Mantain</p>
+        <div class="team-social">
+          <a href="#" aria-label="github">
+           <iconify-icon class="iconify" icon="tabler:brand-github" width="24" height="24"></iconify-icon>
+        </a>
+        <a href="#" aria-label="codepen">
+            <iconify-icon class="iconify" icon="tabler:brand-codepen" width="24" height="24"></iconify-icon>
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="achievements">
+  <h2><iconify-icon icon="tabler:medal-2" width="24" height="24"></iconify-icon> Achievements</h2>
+  <div class="achievement-grid">
+    <div class="achievement-item">
+      <iconify-icon icon="solar:cup-first-linear" width="24px" height="24px"></iconify-icon>
+      <h3>#1</h3>
+      <p>In my Recent contest</p>
+    </div>
+    <div class="achievement-item">
+      <iconify-icon icon="solar:code-file-outline" width="24px" height="24px"></iconify-icon>
+      <h3>50+</h3>
+      <p>Codes in Web</p>
+    </div>
+    <div class="achievement-item">
+      <iconify-icon icon="la:user-friends" width="24px" height="24px"></iconify-icon>
+      <h3>1K</h3>
+      <p>Friends</p>
+    </div>
+    <div class="achievement-item">
+     <iconify-icon icon="mdi:badge-outline" width="24px" height="24px"></iconify-icon>
+      <h3>22+</h3>
+      <p>Badges</p>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<footer id="footer">
+    <div class="footer-logo">
+        <h2><iconify-icon icon="game-icons:broadsword"></iconify-icon>Hritik Gautam</h2>
+       
+        <p>Win or lose is part of game still i always win.</p>
+    </div>
+    <div class="footer-grid">
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Codes</a></li>
+                <li><a href="#">About</a></li>
+             
+            </ul>
+        </div>
+        <div class="contact-info">
+            <h3 id="contact">Contact Us</h3>
+            <p>Email: sujeetgau12@gmail.com</p>
+            <p>Job: UI/UX devloper</p>
+            <p>Address: Mohali,Chandigarh,India </p>
+            <p>Terms & Conditions</p>
+            <p>Sololearn: 16 Lvl Hritik Gautam</p>
+        </div>
+    </div>
+    <div class="social-icons">
+        <a href="#" aria-label="github">
+           <iconify-icon class="iconify" icon="tabler:brand-github" width="24" height="24"></iconify-icon>
+        </a>
+        <a href="#" aria-label="codepen">
+            <iconify-icon class="iconify" icon="tabler:brand-codepen" width="24" height="24"></iconify-icon>
+        </a>
+        <a href="#" aria-label="Leetcode">
+            <iconify-icon class="iconify" icon="tabler:brand-leetcode" width="24" height="24"></iconify-icon>
+        </a>
+        <a href="#" aria-label="Youtube">
+            <iconify-icon class="iconify" icon="tabler:brand-youtube" width="24" height="24"></iconify-icon>
+        </a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Made with 🤟 by Hritik Gautam. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script>
+
+ particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#D7273E" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" }
+        },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 5, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 6, "direction": "none", "out_mode": "out" }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { "distance": 100, "duration": 0.4 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+    
+    const items = [
+'Frontend Devloper',
+'UI/UX Designer',
+'Application Devloper',
+'Cricketer',
+'Model Designer'];
+
+const app = document.getElementById('type');
+let count = 0;
+let index = 0;
+let typingEffect = () => {
+  let text = items[index];
+  if (count < text.length) {
+    setTimeout(() => {
+      app.innerHTML += text[count];
+      count++;
+      typingEffect();
+    }, Math.floor(Math.random(10) * 100));
+  } else {
+    count = 0;
+    index = index + 1 < items.length ? index + 1 : 0;
+    setTimeout(() => {
+      app.innerHTML = '';
+      typingEffect();
+    }, 1500);
+  }
+};
+
+typingEffect();
+
+window.onload = function() {
+    $('.sidebar').hide();
+};
+
+function showSidebar() {
+    $('.sidebar').toggle();
+    $('.sidebar').css("opacity","1");
+}
+</script>
 </body>
 </html>
