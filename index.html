@@ -986,5 +986,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
+    <script>
+        const form = document.querySelector(".contact-form");
+        
+        async function handleSubmit(event) {
+  event.preventDefault();
+  var status = document.createElement("p"); // ایجاد المان پیام وضعیت
+  status.style.color = "#c5f011"; // ست کردن رنگ سبز سایتت
+  status.style.marginTop = "10px";
+  
+  var data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+        'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      status.innerHTML = "Thanks! Your message has been sent successfully.";
+      form.reset(); // خالی کردن فرم بعد از ارسال
+      form.appendChild(status);
+    } else {
+      response.json().then(data => {
+        if (Object.hasOwn(data, 'errors')) {
+          status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+        } else {
+          status.innerHTML = "Oops! There was a problem submitting your form";
+        }
+        form.appendChild(status);
+      })
+    }
+  }).catch(error => {
+    status.innerHTML = "Oops! There was a problem submitting your form";
+    form.appendChild(status);
+  });
+}
+form.addEventListener("submit", handleSubmit)
+    </script>
 </body>
 </html>
