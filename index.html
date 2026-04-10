@@ -906,33 +906,35 @@
 
                 <div class="contact-content">
                     
-                  <form action="" class="contact-form">
-                         <div class="input-container">
-                            <input type="text" class="input">
-                            <label for="">Username</label>
-                            <span>Username</span>
-                        </div>
-    
-                        <div class="input-container">
-                            <input type="email" class="input">
-                            <label for="">Email</label>
-                            <span>Email</span>
-                        </div>
-    
-                        <div class="input-container">
-                            <input type="tel" class="input">
-                            <label for="">Phone</label>
-                            <span>Phone</span>
-                        </div>
-    
-                        <div class="input-container textarea">
-                            <textarea name="" id="" class="input"></textarea>
-                            <label for="">Message</label>
-                            <span>Message</span>
-                        </div>
-    
-                        <button type="submit" class="button"><i class="uil uil-navigator button-icon"></i>Send Message</button>
-                    </form>
+                  <form action="https://formspree.io/f/xvzvjezp" method="POST" class="contact-form">
+    <div class="input-container">
+        <input type="text" name="fullname" class="input" required>
+        <label for="">fullname</label>
+        <span>Full Name</span>
+    </div>
+
+    <div class="input-container">
+        <input type="email" name="email" class="input" required>
+        <label for="">Email</label>
+        <span>Email</span>
+    </div>
+
+    <div class="input-container">
+        <input type="tel" name="phone" class="input">
+        <label for="">Phone</label>
+        <span>Phone</span>
+    </div>
+
+    <div class="input-container textarea">
+        <textarea name="message" id="" class="input" required></textarea>
+        <label for="">Message</label>
+        <span>Message</span>
+    </div>
+
+    <button type="submit" class="button">
+        <i class="uil uil-navigator button-icon"></i> Send Message
+    </button>
+</form>
                 </div>
             </div>
 
