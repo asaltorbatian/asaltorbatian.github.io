@@ -155,7 +155,7 @@ button { cursor: pointer; }
 .home-img { display: none; }
 .home-title { font-size: var(--biggest-font-size); }
 .home-subtitle { font-size: var(--h3-font-size); font-weight: var(--font-medium); margin-bottom: var(--mb075); }
-.home-description { max-width: 450px; margin-bottom: var(--mb2); }
+.home-description { /*max-width: 450px;*/ margin-bottom: var(--mb2); }
 .my-info { display: flex; column-gap: 1.8rem; position: absolute; left: 0; bottom: 1.8rem; }
 .info-item { display: flex; align-items: center; }
 .info-title, .info-subtitle { font-size: var(--small-font-size); }
