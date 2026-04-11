@@ -515,37 +515,49 @@
         <span class="work-item active-work" data-filter="all">All</span>
         <span class="work-item" data-filter=".web">Web</span>
         <span class="work-item" data-filter=".design">Digital Designer</span>
-        <span class="work-item" data-filter=".app">Video & Multimedia</span>
+        <span class="work-item" data-filter=".video">Video & Multimedia</span>
     </div>
 
-    <div class="work-subfilters" id="design-subfilters" style="display: none; justify-content: center; column-gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; row-gap: 0.5rem;">
-        <span class="subwork-item" data-filter=".design" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">All (Design)</span>
-        <span class="subwork-item" data-filter=".logo" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Identity/Logo</span>
-        <span class="subwork-item" data-filter=".invite" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Invites</span>
-        <span class="subwork-item" data-filter=".ai" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">AI Enhanced</span>
-        <span class="subwork-item" data-filter=".manipulation" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Photo Manipulation</span>
+    <div class="work-subfilters" id="web-subfilters" style="display: none;">
+        <span class="subwork-item" data-filter=".web">All Web</span>
+        <span class="subwork-item" data-filter=".frontend">Frontend</span>
+        <span class="subwork-item" data-filter=".wordpress">WordPress</span>
+        <span class="subwork-item" data-filter=".uiux">UI/UX Design</span>
+    </div>
+
+    <div class="work-subfilters" id="design-subfilters" style="display: none;">
+        <span class="subwork-item" data-filter=".design">All Design</span>
+        <span class="subwork-item" data-filter=".logo">Identity/Logo</span>
+        <span class="subwork-item" data-filter=".ai">AI Enhanced</span>
+        <span class="subwork-item" data-filter=".manipulation">Manipulation</span>
+    </div>
+
+    <div class="work-subfilters" id="video-subfilters" style="display: none;">
+        <span class="subwork-item" data-filter=".video">All Video</span>
+        <span class="subwork-item" data-filter=".editing">Editing</span>
+        <span class="subwork-item" data-filter=".grading">Color Grading</span>
+        <span class="subwork-item" data-filter=".motion">Motion Graphics</span>
     </div>
 
     <div class="work-container container grid">
+        <div class="work-card mix web frontend">
+            <img src="https://i.postimg.cc/43Th5VXJ/work-1.png" alt="" class="work-img">
+            <h3 class="work-title">Frontend Project</h3>
+            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
+        </div>
+
         <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (1).png" alt="AI Interior" class="work-img">
-            <h3 class="work-title">AI Interior Design</h3>
+            <img src="Images/AIPhoto/AI (1).png" alt="" class="work-img">
+            <h3 class="work-title">AI Concept</h3>
             <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
         </div>
 
-        <div class="work-card mix design logo">
-            <img src="Images/AIPhoto/AI (2).png" alt="Brand Logo" class="work-img">
-            <h3 class="work-title">Brand Logo</h3>
+        <div class="work-card mix video editing">
+            <img src="https://i.postimg.cc/sXLjnC5p/work-2.png" alt="" class="work-img">
+            <h3 class="work-title">Video Editing</h3>
             <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
         </div>
-
-        <div class="work-card mix web">
-            <img src="https://i.postimg.cc/43Th5VXJ/work-1.png" alt="Web Project" class="work-img">
-            <h3 class="work-title">Web Design</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-        </div>
-
-        </div>
+    </div>
 </section>
 
         <div class="portfolio-popup">
@@ -949,21 +961,106 @@
 }
 form.addEventListener("submit", handleSubmit)
     </script>
-        <script>
-    const filterItems = document.querySelectorAll('.work-item');
-    const designSubfilters = document.getElementById('design-subfilters');
+<script>
+/* ==================== FORM SUBMISSION (AJAX) ==================== */
+const contactForm = document.querySelector(".contact-form");
 
-    filterItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // اگر روی دکمه Digital Designer کلیک شد
-            if (this.getAttribute('data-filter') === '.design') {
-                designSubfilters.style.display = 'flex';
-            } else {
-                // برای بقیه تب‌ها مخفی شود
-                designSubfilters.style.display = 'none';
+if (contactForm) {
+    async function handleFormSubmit(event) {
+        event.preventDefault();
+        const status = document.createElement("p");
+        status.style.marginTop = "10px";
+        status.style.fontWeight = "500";
+        
+        const data = new FormData(event.target);
+        fetch(event.target.action, {
+            method: contactForm.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
             }
+        }).then(response => {
+            if (response.ok) {
+                status.style.color = "#c5f011"; // رنگ سبز برند تو
+                status.innerHTML = "Thanks! Your message has been sent successfully.";
+                contactForm.reset();
+                contactForm.appendChild(status);
+            } else {
+                response.json().then(data => {
+                    status.style.color = "#ff4b4b"; // رنگ قرمز برای خطا
+                    if (Object.hasOwn(data, 'errors')) {
+                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        status.innerHTML = "Oops! There was a problem submitting your form";
+                    }
+                    contactForm.appendChild(status);
+                })
+            }
+        }).catch(error => {
+            status.style.color = "#ff4b4b";
+            status.innerHTML = "Oops! There was a problem submitting your form";
+            contactForm.appendChild(status);
         });
+        
+        // حذف پیام بعد از 5 ثانیه
+        setTimeout(() => status.remove(), 5000);
+    }
+    contactForm.addEventListener("submit", handleFormSubmit);
+}
+
+/* ==================== PORTFOLIO FILTERING & SUB-NAV ==================== */
+const filterItems = document.querySelectorAll('.work-item');
+const subfilterGroups = document.querySelectorAll('.work-subfilters');
+const subworkItems = document.querySelectorAll('.subwork-item');
+
+// ۱. مدیریت نمایش زیرمنوها هنگام کلیک روی تب اصلی
+filterItems.forEach(item => {
+    item.addEventListener('click', function() {
+        const filterValue = this.getAttribute('data-filter');
+        
+        // حذف کلاس active از همه تب‌های اصلی
+        filterItems.forEach(el => el.classList.remove('active-work'));
+        this.classList.add('active-work');
+
+        // مخفی کردن تمام زیرمنوها
+        subfilterGroups.forEach(group => {
+            group.style.display = 'none';
+        });
+
+        // نمایش زیرمنوی مرتبط
+        if (filterValue === '.web') {
+            document.getElementById('web-subfilters').style.display = 'flex';
+        } else if (filterValue === '.design') {
+            document.getElementById('design-subfilters').style.display = 'flex';
+        } else if (filterValue === '.video') {
+            document.getElementById('video-subfilters').style.display = 'flex';
+        }
     });
+});
+
+// ۲. مدیریت استایل دکمه‌های فعال در زیرمنوها (Sub-items)
+subworkItems.forEach(subItem => {
+    subItem.addEventListener('click', function() {
+        // حذف کلاس فعال از تمام گزینه‌های زیرمنو
+        subworkItems.forEach(el => el.classList.remove('active-subwork'));
+        // اضافه کردن به گزینه انتخاب شده
+        this.classList.add('active-subwork');
+    });
+});
+
+/* ==================== MIXITUP INITIALIZATION ==================== */
+/* مطمئن شو کتابخانه MixItUp لود شده باشد، سپس این خط را اجرا کن */
+let mixerPortfolio = mixitup('.work-container', {
+    selectors: {
+        target: '.work-card'
+    },
+    animation: {
+        duration: 300
+    }
+});
 </script>
+
+
+    
 </body>
 </html>
