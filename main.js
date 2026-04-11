@@ -70,14 +70,19 @@ document.querySelector('.portfolio-popup-close').addEventListener('click', toggl
 function portfolioItemDetails(portfolioItem) {
     // ۱. تنظیمات عکس پاپ‌آپ
     const popupThumbnailImg = document.querySelector('.pp-thumbnail img');
+    const thumbnailContainer = document.querySelector('.pp-thumbnail');
+   // const popupImg = document.querySelector('.pp-thumbnail img');
+    const popupContent = document.querySelector('.portfolio-popup-content');
     
     // اگر کارت کلاس مخصوص ویدیو داشت، عکسِ کاور را مخفی کن
     if (portfolioItem.classList.contains('is-video-project')) {
         popupThumbnailImg.style.display = 'none';
+        popupContent.style.gridTemplateColumns = '1fr'; // تمام‌عرض کردن پاپ‌آپ
     } else {
         // اگر پروژه عکس بود، عکس را در پاپ‌آپ نشان بده
         popupThumbnailImg.style.display = 'block';
         popupThumbnailImg.src = portfolioItem.querySelector('.work-img').src;
+        popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // دو ستونه کردن برای بقیه
     }
 
     // ۲. منطق هوشمند ساب‌تایتل
