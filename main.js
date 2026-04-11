@@ -176,3 +176,62 @@ if(navClose) {
         navMenu.classList.remove('show-sidebar');
     })
 }
+
+//Form 
+
+const form = document.querySelector(".contact-form");
+        
+        async function handleSubmit(event) {
+  event.preventDefault();
+  var status = document.createElement("p"); // ایجاد المان پیام وضعیت
+  status.style.color = "#c5f011"; // ست کردن رنگ سبز سایتت
+  status.style.marginTop = "10px";
+  
+  var data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+        'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      status.innerHTML = "Thanks! Your message has been sent successfully.";
+      form.reset(); // خالی کردن فرم بعد از ارسال
+      form.appendChild(status);
+    } else {
+      response.json().then(data => {
+        if (Object.hasOwn(data, 'errors')) {
+          status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+        } else {
+          status.innerHTML = "Oops! There was a problem submitting your form";
+        }
+        form.appendChild(status);
+      })
+    }
+  }).catch(error => {
+    status.innerHTML = "Oops! There was a problem submitting your form";
+    form.appendChild(status);
+  });
+}
+form.addEventListener("submit", handleSubmit)
+
+//Sub Work
+
+const filterItems = document.querySelectorAll('.work-item');
+    const designSubfilters = document.getElementById('design-subfilters');
+
+    filterItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // اگر روی دکمه Digital Designer کلیک شد
+            if (this.getAttribute('data-filter') === '.design') {
+                designSubfilters.style.display = 'flex';
+            } else {
+                // برای بقیه تب‌ها مخفی شود
+                designSubfilters.style.display = 'none';
+            }
+        });
+    });
+
+
+
