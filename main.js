@@ -68,8 +68,17 @@ function togglePortfolioPopup() {
 document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
 
 function portfolioItemDetails(portfolioItem) {
+    // ۱. انتقال عکس
     document.querySelector('.pp-thumbnail img').src = portfolioItem.querySelector('.work-img').src;
-    document.querySelector('.portfolio-popup-subtitle span').innerHTML = portfolioItem.querySelector('.work-title').innerHTML;
+    
+    // ۲. انتقال تیتر اصلی (مثلاً Interior Design)
+    document.querySelector('.portfolio-popup-body .details-title').innerHTML = portfolioItem.querySelector('.work-title').innerHTML;
+    
+    // ۳. انتقال زیرمنو/دسته بندی به بالای پاپ آپ (Featured - AI Enhanced)
+    const subCategory = portfolioItem.querySelector('.project-subtitle').innerHTML;
+    document.querySelector('.portfolio-popup-subtitle span').innerHTML = subCategory;
+
+    // ۴. انتقال بقیه جزئیات
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
 }
 
