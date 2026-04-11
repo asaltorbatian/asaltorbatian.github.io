@@ -509,56 +509,44 @@
         </section>
 
      <section class="work section" id="work">
-            <h2 class="section-title" data-heading="My Portfolio">Recent Workss</h2>
+    <h2 class="section-title" data-heading="My Portfolio">Recent Works</h2>
 
-            <div class="work-filters">
-                <span class="work-item active-work" data-filter="all">All</span>
-                <span class="work-item" data-filter=".web">Web</span>
-                <span class="work-item" data-filter=".design">Digital Designer</span>
-                <span class="work-item" data-filter=".video">Video & Multimedia</span>
-            </div>
+    <div class="work-filters">
+        <span class="work-item active-work" data-filter="all">All</span>
+        <span class="work-item" data-filter=".web">Web</span>
+        <span class="work-item" data-filter=".design">Digital Designer</span>
+        <span class="work-item" data-filter=".app">Video & Multimedia</span>
+    </div>
 
-            <div class="work-subfilters" id="web-subfilters" style="display: none; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                <span class="subwork-item" data-filter=".web">All Web</span>
-                <span class="subwork-item" data-filter=".frontend">Frontend</span>
-                <span class="subwork-item" data-filter=".wordpress">WordPress</span>
-                <span class="subwork-item" data-filter=".uiux">UI/UX Design</span>
-            </div>
+    <div class="work-subfilters" id="design-subfilters" style="display: none; justify-content: center; column-gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; row-gap: 0.5rem;">
+        <span class="subwork-item" data-filter=".design" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">All (Design)</span>
+        <span class="subwork-item" data-filter=".logo" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Identity/Logo</span>
+        <span class="subwork-item" data-filter=".invite" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Invites</span>
+        <span class="subwork-item" data-filter=".ai" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">AI Enhanced</span>
+        <span class="subwork-item" data-filter=".manipulation" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Photo Manipulation</span>
+    </div>
 
-            <div class="work-subfilters" id="design-subfilters" style="display: none; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                <span class="subwork-item" data-filter=".design">All Design</span>
-                <span class="subwork-item" data-filter=".logo">Identity/Logo</span>
-                <span class="subwork-item" data-filter=".ai">AI Enhanced</span>
-                <span class="subwork-item" data-filter=".manipulation">Manipulation</span>
-            </div>
+    <div class="work-container container grid">
+        <div class="work-card mix design ai">
+            <img src="Images/AIPhoto/AI (1).png" alt="AI Interior" class="work-img">
+            <h3 class="work-title">AI Interior Design</h3>
+            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
+        </div>
 
-            <div class="work-subfilters" id="video-subfilters" style="display: none; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                <span class="subwork-item" data-filter=".video">All Video</span>
-                <span class="subwork-item" data-filter=".editing">Editing</span>
-                <span class="subwork-item" data-filter=".grading">Color Grading</span>
-                <span class="subwork-item" data-filter=".motion">Motion Graphics</span>
-            </div>
+        <div class="work-card mix design logo">
+            <img src="Images/AIPhoto/AI (2).png" alt="Brand Logo" class="work-img">
+            <h3 class="work-title">Brand Logo</h3>
+            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
+        </div>
 
-            <div class="work-container container grid">
-                <div class="work-card mix web frontend">
-                    <img src="https://i.postimg.cc/43Th5VXJ/work-1.png" alt="" class="work-img">
-                    <h3 class="work-title">Frontend Project</h3>
-                    <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-                </div>
+        <div class="work-card mix web">
+            <img src="https://i.postimg.cc/43Th5VXJ/work-1.png" alt="Web Project" class="work-img">
+            <h3 class="work-title">Web Design</h3>
+            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
+        </div>
 
-                <div class="work-card mix design ai">
-                    <img src="https://i.postimg.cc/sXLjnC5p/work-2.png" alt="" class="work-img">
-                    <h3 class="work-title">AI Concept</h3>
-                    <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-                </div>
-
-                <div class="work-card mix video editing">
-                    <img src="https://i.postimg.cc/sXLjnC5p/work-2.png" alt="" class="work-img">
-                    <h3 class="work-title">Video Editing</h3>
-                    <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-                </div>
-            </div>
-        </section>
+        </div>
+</section>
 
         <div class="portfolio-popup">
             <div class="portfolio-popup-inner">
@@ -964,55 +952,19 @@ form.addEventListener("submit", handleSubmit)
 
     
 
-    <script>
-    /* ==================== MIXITUP INITIALIZATION ==================== */
-    let mixerPortfolio = mixitup('.work-container', {
-        selectors: {
-            target: '.work-card'
-        },
-        animation: {
-            duration: 300
-        }
-    });
-
+   <script>
     const filterItems = document.querySelectorAll('.work-item');
-    const subfilterGroups = document.querySelectorAll('.work-subfilters');
-    const subworkItems = document.querySelectorAll('.subwork-item');
+    const designSubfilters = document.getElementById('design-subfilters');
 
     filterItems.forEach(item => {
         item.addEventListener('click', function() {
-            filterItems.forEach(el => el.classList.remove('active-work'));
-            this.classList.add('active-work');
-
-            const filterValue = this.getAttribute('data-filter');
-
-            // مخفی کردن زیرمنوها و پاک کردن وضعیت فعال زیرمنوهای قبلی
-            subfilterGroups.forEach(group => group.style.display = 'none');
-            subworkItems.forEach(el => el.classList.remove('active-subwork'));
-
-            // نمایش زیرمنوی مرتبط
-            if (filterValue === '.web') {
-                document.getElementById('web-subfilters').style.display = 'flex';
-            } else if (filterValue === '.design') {
-                document.getElementById('design-subfilters').style.display = 'flex';
-            } else if (filterValue === '.video') {
-                document.getElementById('video-subfilters').style.display = 'flex';
+            // اگر روی دکمه Digital Designer کلیک شد
+            if (this.getAttribute('data-filter') === '.design') {
+                designSubfilters.style.display = 'flex';
+            } else {
+                // برای بقیه تب‌ها مخفی شود
+                designSubfilters.style.display = 'none';
             }
-
-            mixerPortfolio.filter(filterValue);
-        });
-    });
-
-    subworkItems.forEach(subItem => {
-        subItem.addEventListener('click', function() {
-            // پیدا کردن تمام زیرمنوهای هم‌گروه و غیرفعال کردن آن‌ها
-            const parentGroup = this.parentElement;
-            parentGroup.querySelectorAll('.subwork-item').forEach(el => el.classList.remove('active-subwork'));
-            
-            this.classList.add('active-subwork');
-            
-            const subFilterValue = this.getAttribute('data-filter');
-            mixerPortfolio.filter(subFilterValue);
         });
     });
 </script>
