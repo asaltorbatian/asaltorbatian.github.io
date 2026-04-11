@@ -68,32 +68,18 @@ function togglePortfolioPopup() {
 document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
 
 function portfolioItemDetails(portfolioItem) {
-    // ۱. مدیریت عکس سمت چپ
-    const thumbnailContainer = document.querySelector('.pp-thumbnail');
-    const popupImg = document.querySelector('.pp-thumbnail img');
-    const popupContent = document.querySelector('.portfolio-popup-content');
-
-    // چک می‌کنیم آیا این یک پروژه ویدیو است (مثلاً با چک کردن کلاس mix app یا وجود iframe)
-    const isVideo = portfolioItem.classList.contains('app'); // فرض بر اینکه کلاس app برای ویدیوهاست
-
-    if (isVideo) {
-        thumbnailContainer.style.display = 'none'; // مخفی کردن ستون عکس
-        popupContent.style.gridTemplateColumns = '1fr'; // تمام‌عرض کردن پاپ‌آپ
+    const popup = document.querySelector('.portfolio-popup');
+    
+    // اگر کارت کلاس ویدیو داشت، این کلاس را به پاپ‌آپ اصلی هم بده
+    if(portfolioItem.classList.contains('is-video-project')) {
+        popup.classList.add('video-modal-open');
     } else {
-        thumbnailContainer.style.display = 'block'; // نشان دادن عکس برای بقیه پروژه‌ها
-        popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // دو ستونه کردن برای بقیه
-        popupImg.src = portfolioItem.querySelector('.work-img').src;
+        popup.classList.remove('video-modal-open');
     }
-    
-    // ۲. انتقال دسته‌بندی
-    const subTitleTag = portfolioItem.querySelector('.project-subtitle');
-    const subCategory = subTitleTag ? subTitleTag.innerHTML : "Work"; 
-    document.querySelector('.portfolio-popup-subtitle span').innerHTML = subCategory;
 
-    // ۳. انتقال محتوا (شامل ویدیو، متن و استایل‌های داخلی)
+    // بقیه کدهای قبلی خودت بدون تغییر:
+    document.querySelector('.pp-thumbnail img').src = portfolioItem.querySelector('.work-img').src;
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
-    
-    // ۴. هماهنگی تیتر
     document.querySelector('.portfolio-popup-body .details-title').innerHTML = portfolioItem.querySelector('.work-title').innerHTML;
 }
 
