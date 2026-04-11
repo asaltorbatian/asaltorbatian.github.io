@@ -68,18 +68,22 @@ function togglePortfolioPopup() {
 document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
 
 function portfolioItemDetails(portfolioItem) {
-    // ۱. انتقال عکس
+    // ۱. انتقال عکس پروژه
     document.querySelector('.pp-thumbnail img').src = portfolioItem.querySelector('.work-img').src;
     
-    // ۲. انتقال تیتر اصلی (مثلاً Interior Design)
-    document.querySelector('.portfolio-popup-body .details-title').innerHTML = portfolioItem.querySelector('.work-title').innerHTML;
-    
-    // ۳. انتقال زیرمنو/دسته بندی به بالای پاپ آپ (Featured - AI Enhanced)
-    const subCategory = portfolioItem.querySelector('.project-subtitle').innerHTML;
+    // ۲. انتقال دسته‌بندی به بالای پاپ‌آپ (Featured - ...)
+    // چک می‌کنیم اگر تگ ساب‌تایتل وجود داشت آن را بردارد، در غیر این صورت مقدار پیش‌فرض
+    const subTitleTag = portfolioItem.querySelector('.project-subtitle');
+    const subCategory = subTitleTag ? subTitleTag.innerHTML : "Work"; 
     document.querySelector('.portfolio-popup-subtitle span').innerHTML = subCategory;
 
-    // ۴. انتقال بقیه جزئیات
+    // ۳. انتقال کل بدنه جزئیات (این مرحله باید قبل از تغییرات اختصاصی تیتر باشد)
+    // اینجا تمام اطلاعات (توضیحات، تاریخ، نقش) کپی می‌شود
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
+    
+    // ۴. حالا که بدنه کپی شد، تیتر داخل پاپ‌آپ را با تیتر کارت یکی می‌کنیم
+    // این کار باعث می‌شود تیتر پاپ‌آپ دقیقاً همان چیزی شود که روی کارت نوشته شده
+    document.querySelector('.portfolio-popup-body .details-title').innerHTML = portfolioItem.querySelector('.work-title').innerHTML;
 }
 
 //Services Popup
