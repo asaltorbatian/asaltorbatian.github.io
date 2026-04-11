@@ -518,33 +518,33 @@
         <span class="work-item" data-filter=".app">Video & Multimedia</span>
     </div>
 
-    <div class="work-subfilters">
-        <span class="subwork-item" data-filter=".design">All (Design)</span>
-        <span class="subwork-item" data-filter=".logo">Identity/Logo</span>
-        <span class="subwork-item" data-filter=".invite">Invites</span>
-        <span class="subwork-item" data-filter=".ai">AI Enhanced</span>
-        <span class="subwork-item" data-filter=".manipulation">Photo Manipulation</span>
+    <div class="work-subfilters" id="design-subfilters" style="display: none; justify-content: center; column-gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; row-gap: 0.5rem;">
+        <span class="subwork-item" data-filter=".design" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">All (Design)</span>
+        <span class="subwork-item" data-filter=".logo" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Identity/Logo</span>
+        <span class="subwork-item" data-filter=".invite" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Invites</span>
+        <span class="subwork-item" data-filter=".ai" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">AI Enhanced</span>
+        <span class="subwork-item" data-filter=".manipulation" style="cursor: pointer; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 1px solid #eee;">Photo Manipulation</span>
     </div>
 
     <div class="work-container container grid">
         <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (1).png" alt="Interior Design" class="work-img">
+            <img src="Images/AIPhoto/AI (1).png" alt="AI Interior" class="work-img">
             <h3 class="work-title">AI Interior Design</h3>
             <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            </div>
+        </div>
 
         <div class="work-card mix design logo">
-            <img src="Images/AIPhoto/AI (2).png" alt="Logo Design" class="work-img">
+            <img src="Images/AIPhoto/AI (2).png" alt="Brand Logo" class="work-img">
             <h3 class="work-title">Brand Logo</h3>
             <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
         </div>
 
         <div class="work-card mix web">
-            <img src="https://i.postimg.cc/43Th5VXJ/work-1.png" alt="" class="work-img">
+            <img src="https://i.postimg.cc/43Th5VXJ/work-1.png" alt="Web Project" class="work-img">
             <h3 class="work-title">Web Design</h3>
             <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
         </div>
-        
+
         </div>
 </section>
 
@@ -949,5 +949,21 @@
 }
 form.addEventListener("submit", handleSubmit)
     </script>
+        <script>
+    const filterItems = document.querySelectorAll('.work-item');
+    const designSubfilters = document.getElementById('design-subfilters');
+
+    filterItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // اگر روی دکمه Digital Designer کلیک شد
+            if (this.getAttribute('data-filter') === '.design') {
+                designSubfilters.style.display = 'flex';
+            } else {
+                // برای بقیه تب‌ها مخفی شود
+                designSubfilters.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
 </html>
