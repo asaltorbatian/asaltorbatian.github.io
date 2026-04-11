@@ -532,7 +532,7 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 /* حالت هاور و فعال برای تب‌های دوم */
 .subwork-item:hover{
     background-color: var(--first-color); /* همان رنگ سبز پسته ای سایتت */
-    color: hsl(60deg 90% 27.45%)
+    color: hsl(60deg 90% 27.45%);
     border-color: var(--first-color);
 }
 .active-subwork {
