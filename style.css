@@ -518,24 +518,20 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 }
 
 .subwork-item {
-    cursor: pointer;
-    color: var(--title-color);
-    padding: 0.35rem 1rem;
-    font-weight: var(--font-medium);
-    border-radius: 0.5rem;
-    font-size: var(--smaller-font-size);
-    border: 1px solid rgba(255, 255, 255, 0.1); /* مرز کمرنگ برای تم دارک */
-    background-color: transparent;
-    transition: all 0.3s ease;
+   cursor: pointer;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.5rem;
+        transition: .3s;
+        font-size: var(--small-font-size);
+        background-color: var(--container-color); /* یا هر رنگ پس‌زمینه‌ای که دارید */
 }
 
 /* حالت هاور و فعال برای تب‌های دوم */
 .subwork-item:hover, 
 .active-subwork {
-    background-color: var(--first-color); /* همان رنگ سبز پسته ای سایتت */
-    color: var(--body-color); /* رنگ متن تیره برای کنتراست */
-    border-color: var(--first-color);
-}
+        background-color: var(--first-color);
+        color: #fff;
+    }
 
 /* انیمیشن ورود */
 @keyframes fadeInDown {
