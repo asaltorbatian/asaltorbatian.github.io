@@ -562,3 +562,16 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
         font-size: 10px;
     }
 }
+/* وقتی پاپ‌آپ ویدیویی باز است */
+.portfolio-popup.video-modal-open .pp-thumbnail {
+    display: none !important; /* حذف عکس سمت چپ */
+}
+
+.portfolio-popup.video-modal-open .portfolio-popup-content.grid {
+    grid-template-columns: 1fr !important; /* تک ستونه کردن */
+    max-width: 800px; /* برای اینکه خیلی عریض و بدقیافه نشود */
+}
+
+.portfolio-popup.video-modal-open .portfolio-popup-info {
+    padding: 30px !important;
+}
