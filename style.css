@@ -535,11 +535,9 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
     color: hsl(60deg 90% 27.45%);
     /*border-color: var(--first-color);*/
 }
-.active-subwork {
-        background-color: red;
-    color: var(--title-color);
+.subwork-item:active{
+    color: hsl(60deg 90% 27.45%);
 }
-
 /* انیمیشن ورود */
 @keyframes fadeInDown {
     from {
