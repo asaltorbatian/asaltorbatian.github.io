@@ -965,57 +965,57 @@ form.addEventListener("submit", handleSubmit)
     
 
     <script>
-        /* ==================== MIXITUP INITIALIZATION ==================== */
-        let mixerPortfolio = mixitup('.work-container', {
-            selectors: {
-                target: '.work-card'
-            },
-            animation: {
-                duration: 300
+    /* ==================== MIXITUP INITIALIZATION ==================== */
+    let mixerPortfolio = mixitup('.work-container', {
+        selectors: {
+            target: '.work-card'
+        },
+        animation: {
+            duration: 300
+        }
+    });
+
+    const filterItems = document.querySelectorAll('.work-item');
+    const subfilterGroups = document.querySelectorAll('.work-subfilters');
+    const subworkItems = document.querySelectorAll('.subwork-item');
+
+    filterItems.forEach(item => {
+        item.addEventListener('click', function() {
+            filterItems.forEach(el => el.classList.remove('active-work'));
+            this.classList.add('active-work');
+
+            const filterValue = this.getAttribute('data-filter');
+
+            // مخفی کردن زیرمنوها و پاک کردن وضعیت فعال زیرمنوهای قبلی
+            subfilterGroups.forEach(group => group.style.display = 'none');
+            subworkItems.forEach(el => el.classList.remove('active-subwork'));
+
+            // نمایش زیرمنوی مرتبط
+            if (filterValue === '.web') {
+                document.getElementById('web-subfilters').style.display = 'flex';
+            } else if (filterValue === '.design') {
+                document.getElementById('design-subfilters').style.display = 'flex';
+            } else if (filterValue === '.video') {
+                document.getElementById('video-subfilters').style.display = 'flex';
             }
+
+            mixerPortfolio.filter(filterValue);
         });
+    });
 
-        /* ==================== TAB & SUBFILTER LOGIC ==================== */
-        const filterItems = document.querySelectorAll('.work-item');
-        const subfilterGroups = document.querySelectorAll('.work-subfilters');
-        const subworkItems = document.querySelectorAll('.subwork-item');
-
-        filterItems.forEach(item => {
-            item.addEventListener('click', function() {
-                // مدیریت استایل دکمه فعال اصلی
-                filterItems.forEach(el => el.classList.remove('active-work'));
-                this.classList.add('active-work');
-
-                const filterValue = this.getAttribute('data-filter');
-
-                // مخفی کردن همه زیرمنوها ابتدا
-                subfilterGroups.forEach(group => group.style.display = 'none');
-
-                // نمایش زیرمنوی مرتبط و فیلتر کردن
-                if (filterValue === '.web') {
-                    document.getElementById('web-subfilters').style.display = 'flex';
-                } else if (filterValue === '.design') {
-                    document.getElementById('design-subfilters').style.display = 'flex';
-                } else if (filterValue === '.video') {
-                    document.getElementById('video-subfilters').style.display = 'flex';
-                }
-
-                // اجرای فیلتر اصلی
-                mixerPortfolio.filter(filterValue);
-            });
+    subworkItems.forEach(subItem => {
+        subItem.addEventListener('click', function() {
+            // پیدا کردن تمام زیرمنوهای هم‌گروه و غیرفعال کردن آن‌ها
+            const parentGroup = this.parentElement;
+            parentGroup.querySelectorAll('.subwork-item').forEach(el => el.classList.remove('active-subwork'));
+            
+            this.classList.add('active-subwork');
+            
+            const subFilterValue = this.getAttribute('data-filter');
+            mixerPortfolio.filter(subFilterValue);
         });
-
-        // فیلتر کردن از طریق زیرمنوها
-        subworkItems.forEach(subItem => {
-            subItem.addEventListener('click', function() {
-                subworkItems.forEach(el => el.classList.remove('active-subwork'));
-                this.classList.add('active-subwork');
-                
-                const subFilterValue = this.getAttribute('data-filter');
-                mixerPortfolio.filter(subFilterValue);
-            });
-        });
-    </script>
+    });
+</script>
 
 
     
