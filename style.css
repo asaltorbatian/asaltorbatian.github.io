@@ -536,7 +536,7 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
     /*border-color: var(--first-color);*/
 }
 .active-subwork {
-        background-color: #ffff0080;
+        background-color: red;
     color: var(--title-color);
 }
 
