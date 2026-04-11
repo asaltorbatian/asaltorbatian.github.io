@@ -68,9 +68,18 @@ function togglePortfolioPopup() {
 document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
 
 function portfolioItemDetails(portfolioItem) {
-    // ۱. عکس
-    document.querySelector('.pp-thumbnail img').src = portfolioItem.querySelector('.work-img').src;
+    // ۱. تنظیمات عکس پاپ‌آپ
+    const popupThumbnailImg = document.querySelector('.pp-thumbnail img');
     
+    // اگر کارت کلاس مخصوص ویدیو داشت، عکسِ کاور را مخفی کن
+    if (portfolioItem.classList.contains('is-video-project')) {
+        popupThumbnailImg.style.display = 'none';
+    } else {
+        // اگر پروژه عکس بود، عکس را در پاپ‌آپ نشان بده
+        popupThumbnailImg.style.display = 'block';
+        popupThumbnailImg.src = portfolioItem.querySelector('.work-img').src;
+    }
+
     // ۲. منطق هوشمند ساب‌تایتل
     const subTitleTag = portfolioItem.querySelector('.project-subtitle');
     const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
@@ -83,11 +92,10 @@ function portfolioItemDetails(portfolioItem) {
         targetSubtitleSpan.innerHTML = mainTitle;
     }
 
-    // ۳. انتقال بقیه محتوا
+    // ۳. کپی کردن کل بدنه جزئیات به داخل پاپ‌آپ
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
     
-    // ۴. ست کردن تیتر داخل بدنه (اطمینان از هماهنگی)
-    // اگر در بخش ویدیو تیتر متفاوتی در details داری، این خط آن را با تیتر روی کارت یکی می‌کند
+    // ۴. اطمینان از اینکه تیتر داخل پاپ‌آپ هم درست است
     const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
     if(detailsTitle) {
         detailsTitle.innerHTML = mainTitle;
