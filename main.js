@@ -68,19 +68,30 @@ function togglePortfolioPopup() {
 document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
 
 function portfolioItemDetails(portfolioItem) {
-    const popup = document.querySelector('.portfolio-popup');
+    // ۱. عکس
+    document.querySelector('.pp-thumbnail img').src = portfolioItem.querySelector('.work-img').src;
     
-    // اگر کارت کلاس ویدیو داشت، این کلاس را به پاپ‌آپ اصلی هم بده
-    if(portfolioItem.classList.contains('is-video-project')) {
-        popup.classList.add('video-modal-open');
+    // ۲. منطق هوشمند ساب‌تایتل
+    const subTitleTag = portfolioItem.querySelector('.project-subtitle');
+    const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
+    const targetSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
+
+    // اگر ساب‌تایتل وجود داشت و خالی نبود، آن را نشان بده، در غیر این صورت تایتل اصلی
+    if(subTitleTag && subTitleTag.innerHTML.trim() !== "") {
+        targetSubtitleSpan.innerHTML = subTitleTag.innerHTML;
     } else {
-        popup.classList.remove('video-modal-open');
+        targetSubtitleSpan.innerHTML = mainTitle;
     }
 
-    // بقیه کدهای قبلی خودت بدون تغییر:
-    document.querySelector('.pp-thumbnail img').src = portfolioItem.querySelector('.work-img').src;
+    // ۳. انتقال بقیه محتوا
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
-    document.querySelector('.portfolio-popup-body .details-title').innerHTML = portfolioItem.querySelector('.work-title').innerHTML;
+    
+    // ۴. ست کردن تیتر داخل بدنه (اطمینان از هماهنگی)
+    // اگر در بخش ویدیو تیتر متفاوتی در details داری، این خط آن را با تیتر روی کارت یکی می‌کند
+    const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
+    if(detailsTitle) {
+        detailsTitle.innerHTML = mainTitle;
+    }
 }
 
 //Services Popup
