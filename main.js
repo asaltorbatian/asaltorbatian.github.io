@@ -68,21 +68,32 @@ function togglePortfolioPopup() {
 document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
 
 function portfolioItemDetails(portfolioItem) {
-    // ۱. انتقال عکس پروژه
-    document.querySelector('.pp-thumbnail img').src = portfolioItem.querySelector('.work-img').src;
+    // ۱. مدیریت عکس سمت چپ
+    const thumbnailContainer = document.querySelector('.pp-thumbnail');
+    const popupImg = document.querySelector('.pp-thumbnail img');
+    const popupContent = document.querySelector('.portfolio-popup-content');
+
+    // چک می‌کنیم آیا این یک پروژه ویدیو است (مثلاً با چک کردن کلاس mix app یا وجود iframe)
+    const isVideo = portfolioItem.classList.contains('app'); // فرض بر اینکه کلاس app برای ویدیوهاست
+
+    if (isVideo) {
+        thumbnailContainer.style.display = 'none'; // مخفی کردن ستون عکس
+        popupContent.style.gridTemplateColumns = '1fr'; // تمام‌عرض کردن پاپ‌آپ
+    } else {
+        thumbnailContainer.style.display = 'block'; // نشان دادن عکس برای بقیه پروژه‌ها
+        popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // دو ستونه کردن برای بقیه
+        popupImg.src = portfolioItem.querySelector('.work-img').src;
+    }
     
-    // ۲. انتقال دسته‌بندی به بالای پاپ‌آپ (Featured - ...)
-    // چک می‌کنیم اگر تگ ساب‌تایتل وجود داشت آن را بردارد، در غیر این صورت مقدار پیش‌فرض
+    // ۲. انتقال دسته‌بندی
     const subTitleTag = portfolioItem.querySelector('.project-subtitle');
     const subCategory = subTitleTag ? subTitleTag.innerHTML : "Work"; 
     document.querySelector('.portfolio-popup-subtitle span').innerHTML = subCategory;
 
-    // ۳. انتقال کل بدنه جزئیات (این مرحله باید قبل از تغییرات اختصاصی تیتر باشد)
-    // اینجا تمام اطلاعات (توضیحات، تاریخ، نقش) کپی می‌شود
+    // ۳. انتقال محتوا (شامل ویدیو، متن و استایل‌های داخلی)
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
     
-    // ۴. حالا که بدنه کپی شد، تیتر داخل پاپ‌آپ را با تیتر کارت یکی می‌کنیم
-    // این کار باعث می‌شود تیتر پاپ‌آپ دقیقاً همان چیزی شود که روی کارت نوشته شده
+    // ۴. هماهنگی تیتر
     document.querySelector('.portfolio-popup-body .details-title').innerHTML = portfolioItem.querySelector('.work-title').innerHTML;
 }
 
