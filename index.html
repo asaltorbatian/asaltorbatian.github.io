@@ -509,7 +509,7 @@
         </section>
 
      <section class="work section" id="work">
-    <h2 class="section-title" data-heading="My Portfolio">Recent Works1</h2>
+    <h2 class="section-title" data-heading="My Portfolio">Recent Works</h2>
 
     <div class="work-filters">
         <span class="work-item active-work" data-filter="all">All</span>
@@ -737,39 +737,61 @@
 
         <div class="work-card mix app">
     <img src="https://i.postimg.cc/43Th5VXJ/work-1.png" alt="Video" class="work-img">
-
     <h3 class="work-title">Video Production</h3>
-    
     <span class="work-button">Watch Video <i class="uil uil-arrow-right work-button-icon"></i></span>
 
     <div class="portfolio-item-details" style="display: none;">
-        <h3 class="details-title">Tech & SaaS Showcase</h3>
         
-        <div class="video-container" style="margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; background: #000;">
-            <iframe 
-                src="https://drive.google.com/file/d/1EQVmjlUvymog95qSNiT1M1kah8GjP3af/preview" 
-                width="100%" 
-                height="300" 
-                allow="autoplay"
-                style="border: none;">
-            </iframe>
-        </div>
+        <style>
+            /* مخفی کردن کانتینر عکس سمت چپ */
+            .portfolio-popup-content .pp-thumbnail {
+                display: none !important;
+            }
+            
+            /* تغییر چیدمان گرید از 2 ستون به 1 ستون */
+            .portfolio-popup-content.grid {
+                grid-template-columns: 1fr !important;
+            }
 
-        <p class="details-description">
-            در این پروژه، توانایی ادیت ویدیوهای تبلیغاتی نرم‌افزار را با استفاده از زوم‌های نرم و موشن‌گرافیک نمایش داده‌ام.
-        </p>
-        
-        <ul class="details-info">
-            <li>Created - <span>2026</span></li>
-            <li>Technologies - <span>Premiere / DaVinci</span></li>
-            <li>Role - <span>Video Editor</span></li>
-        </ul>
+            /* اصلاح پدینگ و عرض بخش محتوا */
+            .portfolio-popup-info {
+                width: 100% !important;
+                padding: 4% !important; /* پدینگ کمی بیشتر برای زیبایی */
+            }
+        </style>
+
+        <div class="portfolio-popup-subtitle">Featured - <span style="color:#8b8b0e;">Video</span></div>
+        <div class="portfolio-popup-body">
+            <h3 class="details-title">Tech & SaaS Showcase</h3>
+            
+            <div class="video-container" style="margin: 20px 0; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <iframe 
+                    src="https://drive.google.com/file/d/YOUR_FILE_ID/preview" 
+                    width="100%" 
+                    height="400" 
+                    allow="autoplay"
+                    style="border: none;">
+                </iframe>
+            </div>
+
+            <p class="details-description">
+                در این پروژه، توانایی ادیت ویدیوهای تبلیغاتی نرم‌افزار را با استفاده از زوم‌های نرم و موشن‌گرافیک نمایش داده‌ام.
+            </p>
+            
+            <ul class="details-info">
+                <li>Created - <span>2026</span></li>
+                <li>Technologies - <span>Premiere / DaVinci</span></li>
+                <li>Role - <span>Video Editor</span></li>
+            </ul>
+        </div>
     </div>
 </div>
+        
+
+       
 
     </div>
 </section>
-
         <div class="portfolio-popup">
             <div class="portfolio-popup-inner">
                 <div class="portfolio-popup-content grid">
