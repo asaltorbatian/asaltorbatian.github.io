@@ -522,9 +522,9 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
     color: var(--title-color);
     padding: 0.35rem 1rem;
     font-weight: var(--font-medium);
-    border-radius: 0.5rem;
+   /* border-radius: 0.5rem; */
     font-size: var(--smaller-font-size);
-    border: 1px solid rgba(255, 255, 255, 0.1); /* مرز کمرنگ برای تم دارک */
+    /*border: 1px solid rgba(255, 255, 255, 0.1); */ /* مرز کمرنگ برای تم دارک */
     background-color: transparent;
     transition: all 0.3s ease;
 }
@@ -533,7 +533,7 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 .subwork-item:hover{
     background-color: var(--first-color); /* همان رنگ سبز پسته ای سایتت */
     color: hsl(60deg 90% 27.45%);
-    border-color: var(--first-color);
+    /*border-color: var(--first-color);*/
 }
 .active-subwork {
         background-color: #ffff0080;
