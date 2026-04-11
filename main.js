@@ -42,6 +42,16 @@ function activeWork() {
 }
 linkWork.forEach(l => l.addEventListener('click', activeWork));
 
+
+const linkSubWork = document.querySelectorAll('.subwork-item');
+
+function activeSubWork() {
+    linkSubWork.forEach(l => l.classList.remove('active-subwork'))
+    this.classList.add('active-subwork')
+}
+linkSubWork.forEach(l => l.addEventListener('click', activeSubWork));
+
+
 //Portfolio Popup
 
 document.addEventListener('click', (e) => {
