@@ -114,22 +114,25 @@ const hWorkTitleTag = portfolioItem.querySelector('.hwork-title');
 const mainTitleTag = portfolioItem.querySelector('.work-title');
 const targetSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
 
-let displayTitle = "";
+//let displayTitle = "";
 
 // اولویت ۱: اگر ساب‌تایتل اختصاصی وجود داشت (مثل AI Enhanced در بخش دیزاین)
 if (subTitleTag && subTitleTag.innerHTML.trim() !== "") {
-    displayTitle = "Featured - " + subTitleTag.innerHTML;
+  //  displayTitle = "Featured - " + subTitleTag.innerHTML;
+    targetSubtitleSpan.innerHTML = subTitleTag.innerHTML;
 } 
 // اولویت ۲: اگر ساب‌تایتل نبود، از کلاس hwork-title استفاده کن (مثل Web یا Video)
 else if (hWorkTitleTag && hWorkTitleTag.innerHTML.trim() !== "") {
-    displayTitle = "Featured - " + hWorkTitleTag.innerHTML;
+   // displayTitle = "Featured - " + hWorkTitleTag.innerHTML;
+    targetSubtitleSpan.innerHTML = hWorkTitleTag.innerHTML;;
 }
 // اولویت ۳: اگر هیچکدام نبود، همان عنوان اصلی را بگذار
 else {
-    displayTitle = mainTitleTag ? mainTitleTag.innerHTML : "";
+ //   displayTitle = mainTitleTag ? mainTitleTag.innerHTML : "";
+    targetSubtitleSpan.innerHTML=mainTitleTag ? mainTitleTag.innerHTML : "";
 }
 
-targetSubtitleSpan.innerHTML = displayTitle;
+//targetSubtitleSpan.innerHTML = displayTitle;
 
 // ۳. کپی کردن محتویات بدنه به داخل پاپ‌آپ
 const detailsContent = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
