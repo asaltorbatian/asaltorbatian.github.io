@@ -85,7 +85,7 @@ function portfolioItemDetails(portfolioItem) {
         popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // دو ستونه کردن برای بقیه
     }
 
-  /*   // ۲. منطق هوشمند ساب‌تایتل
+   // ۲. منطق هوشمند ساب‌تایتل
     const subTitleTag = portfolioItem.querySelector('.project-subtitle');
     const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
     const HmainTitle = portfolioItem.querySelector('.hwork-title').innerHTML;
@@ -107,37 +107,8 @@ function portfolioItemDetails(portfolioItem) {
     if(detailsTitle) {
       //  detailsTitle.innerHTML = mainTitle;
         detailsTitle.innerHTML = HmainTitle;
-    }*/
-   // ۲. منطق هوشمند ساب‌تایتل (بالای عنوان پاپ‌آپ)
-const subTitleTag = portfolioItem.querySelector('.project-subtitle');
-const hWorkTitleTag = portfolioItem.querySelector('.hwork-title');
-const mainTitleTag = portfolioItem.querySelector('.work-title');
-const targetSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
-
-//let displayTitle = "";
-
-// اولویت ۱: اگر ساب‌تایتل اختصاصی وجود داشت (مثل AI Enhanced در بخش دیزاین)
-if (subTitleTag && subTitleTag.innerHTML.trim() !== "") {
-  //  displayTitle = "Featured - " + subTitleTag.innerHTML;
-    targetSubtitleSpan.innerHTML = subTitleTag.innerHTML;
-} 
-// اولویت ۲: اگر ساب‌تایتل نبود، از کلاس hwork-title استفاده کن (مثل Web یا Video)
-else if (hWorkTitleTag && hWorkTitleTag.innerHTML.trim() !== "") {
-   // displayTitle = "Featured - " + hWorkTitleTag.innerHTML;
-    targetSubtitleSpan.innerHTML = hWorkTitleTag.innerHTML;
-}
-// اولویت ۳: اگر هیچکدام نبود، همان عنوان اصلی را بگذار
-else {
- //   displayTitle = mainTitleTag ? mainTitleTag.innerHTML : "";
-    targetSubtitleSpan.innerHTML=mainTitleTag ? mainTitleTag.innerHTML : "";
-}
-
-//targetSubtitleSpan.innerHTML = displayTitle;
-
-// ۳. کپی کردن محتویات بدنه به داخل پاپ‌آپ
-const detailsContent = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
-document.querySelector('.portfolio-popup-body').innerHTML = detailsContent;
-
+    }
+ 
 //Services Popup
 const modalViews = document.querySelectorAll('.services-modal');
 const modelBtns = document.querySelectorAll('.services-button');
