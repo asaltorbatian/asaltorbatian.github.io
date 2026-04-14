@@ -103,11 +103,11 @@ function portfolioItemDetails(portfolioItem) {
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
     
     // ۴. اطمینان از اینکه تیتر داخل پاپ‌آپ هم درست است
-    const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
+/*    const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
     if(detailsTitle) {
       //  detailsTitle.innerHTML = mainTitle;
         detailsTitle.innerHTML = HmainTitle;
-    }
+    }*/
 }
 
 //Services Popup
