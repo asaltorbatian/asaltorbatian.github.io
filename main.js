@@ -85,7 +85,7 @@ function portfolioItemDetails(portfolioItem) {
         popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // دو ستونه کردن برای بقیه
     }
 
-    // ۲. منطق هوشمند ساب‌تایتل
+  /*   // ۲. منطق هوشمند ساب‌تایتل
     const subTitleTag = portfolioItem.querySelector('.project-subtitle');
     const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
     const HmainTitle = portfolioItem.querySelector('.hwork-title').innerHTML;
@@ -103,11 +103,28 @@ function portfolioItemDetails(portfolioItem) {
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
     
     // ۴. اطمینان از اینکه تیتر داخل پاپ‌آپ هم درست است
-/*    const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
+   const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
     if(detailsTitle) {
       //  detailsTitle.innerHTML = mainTitle;
         detailsTitle.innerHTML = HmainTitle;
     }*/
+    // ۲. منطق هوشمند ساب‌تایتل
+    const subTitleTag = portfolioItem.querySelector('.project-subtitle');
+    const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
+    const HmainTitle = portfolioItem.querySelector('.hwork-title').innerHTML;
+    const targetSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
+
+    // اگر ساب‌تایتل وجود داشت و خالی نبود، آن را نشان بده، در غیر این صورت تایتل اصلی
+    if(subTitleTag && subTitleTag.innerHTML.trim() !== "") {
+        targetSubtitleSpan.innerHTML = subTitleTag.innerHTML;
+    } else {
+       // targetSubtitleSpan.innerHTML = mainTitle;
+        targetSubtitleSpan.innerHTML = HmainTitle;
+    }
+
+    // ۳. کپی کردن کل بدنه جزئیات به داخل پاپ‌آپ
+    document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
+    
 }
 
 //Services Popup
