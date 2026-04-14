@@ -124,7 +124,7 @@ if (subTitleTag && subTitleTag.innerHTML.trim() !== "") {
 // اولویت ۲: اگر ساب‌تایتل نبود، از کلاس hwork-title استفاده کن (مثل Web یا Video)
 else if (hWorkTitleTag && hWorkTitleTag.innerHTML.trim() !== "") {
    // displayTitle = "Featured - " + hWorkTitleTag.innerHTML;
-    targetSubtitleSpan.innerHTML = hWorkTitleTag.innerHTML;;
+    targetSubtitleSpan.innerHTML = hWorkTitleTag.innerHTML;
 }
 // اولویت ۳: اگر هیچکدام نبود، همان عنوان اصلی را بگذار
 else {
