@@ -85,7 +85,7 @@ function portfolioItemDetails(portfolioItem) {
         popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // دو ستونه کردن برای بقیه
     }
 
-   // ۲. منطق هوشمند ساب‌تایتل
+    // ۲. منطق هوشمند ساب‌تایتل
     const subTitleTag = portfolioItem.querySelector('.project-subtitle');
     const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
     const HmainTitle = portfolioItem.querySelector('.hwork-title').innerHTML;
@@ -103,12 +103,12 @@ function portfolioItemDetails(portfolioItem) {
     document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
     
     // ۴. اطمینان از اینکه تیتر داخل پاپ‌آپ هم درست است
-   const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
+    const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
     if(detailsTitle) {
-      //  detailsTitle.innerHTML = mainTitle;
-        detailsTitle.innerHTML = HmainTitle;
+        detailsTitle.innerHTML = mainTitle;
     }
- 
+}
+
 //Services Popup
 const modalViews = document.querySelectorAll('.services-modal');
 const modelBtns = document.querySelectorAll('.services-button');
@@ -268,6 +268,3 @@ const filterItems = document.querySelectorAll('.work-item');
             }
         });
     });
-
-
-
