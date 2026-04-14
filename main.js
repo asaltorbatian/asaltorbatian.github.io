@@ -108,24 +108,32 @@ function portfolioItemDetails(portfolioItem) {
       //  detailsTitle.innerHTML = mainTitle;
         detailsTitle.innerHTML = HmainTitle;
     }*/
-    // ۲. منطق هوشمند ساب‌تایتل
-    const subTitleTag = portfolioItem.querySelector('.project-subtitle');
-    const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
-    const HmainTitle = portfolioItem.querySelector('.hwork-title').innerHTML;
-    const targetSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
+   // ۲. منطق هوشمند ساب‌تایتل (بالای عنوان پاپ‌آپ)
+const subTitleTag = portfolioItem.querySelector('.project-subtitle');
+const hWorkTitleTag = portfolioItem.querySelector('.hwork-title');
+const mainTitleTag = portfolioItem.querySelector('.work-title');
+const targetSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
 
-    // اگر ساب‌تایتل وجود داشت و خالی نبود، آن را نشان بده، در غیر این صورت تایتل اصلی
-    if(subTitleTag && subTitleTag.innerHTML.trim() !== "") {
-        targetSubtitleSpan.innerHTML = subTitleTag.innerHTML;
-    } else {
-       // targetSubtitleSpan.innerHTML = mainTitle;
-        targetSubtitleSpan.innerHTML = HmainTitle;
-    }
+let displayTitle = "";
 
-    // ۳. کپی کردن کل بدنه جزئیات به داخل پاپ‌آپ
-    document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
-    
+// اولویت ۱: اگر ساب‌تایتل اختصاصی وجود داشت (مثل AI Enhanced در بخش دیزاین)
+if (subTitleTag && subTitleTag.innerHTML.trim() !== "") {
+    displayTitle = "Featured - " + subTitleTag.innerHTML;
+} 
+// اولویت ۲: اگر ساب‌تایتل نبود، از کلاس hwork-title استفاده کن (مثل Web یا Video)
+else if (hWorkTitleTag && hWorkTitleTag.innerHTML.trim() !== "") {
+    displayTitle = "Featured - " + hWorkTitleTag.innerHTML;
 }
+// اولویت ۳: اگر هیچکدام نبود، همان عنوان اصلی را بگذار
+else {
+    displayTitle = mainTitleTag ? mainTitleTag.innerHTML : "";
+}
+
+targetSubtitleSpan.innerHTML = displayTitle;
+
+// ۳. کپی کردن محتویات بدنه به داخل پاپ‌آپ
+const detailsContent = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
+document.querySelector('.portfolio-popup-body').innerHTML = detailsContent;
 
 //Services Popup
 const modalViews = document.querySelectorAll('.services-modal');
