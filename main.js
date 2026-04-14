@@ -81,13 +81,13 @@ function portfolioItemDetails(portfolioItem) {
     else if (portfolioItem.classList.contains('design')) {
         // چک کردن کلاس‌های زیرمجموعه که در HTML دادی
         if (portfolioItem.classList.contains('ai')) {
-            category = "AI Enhanced";
+            category = "Digital Design - AI Enhanced";
         } else if (portfolioItem.classList.contains('identity')) {
-            category = "Identity Design";
+            category = "Digital Design - Identity Design";
         } else if (portfolioItem.classList.contains('invite')) {
-            category = "Cards & Invites";
+            category = "Digital Design - Cards & Invites";
         } else if (portfolioItem.classList.contains('manipulation')) {
-            category = "Photo Edit";
+            category = "Digital Design - Photo Edit";
         } else {
             category = "Digital Design"; // حالت رزرو اگر کلاس فرعی نداشت
         }
