@@ -88,15 +88,13 @@ function portfolioItemDetails(portfolioItem) {
     // ۲. منطق هوشمند ساب‌تایتل
     const subTitleTag = portfolioItem.querySelector('.project-subtitle');
     const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
-    const HmainTitle = portfolioItem.querySelector('.hwork-title').innerHTML;
     const targetSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
 
     // اگر ساب‌تایتل وجود داشت و خالی نبود، آن را نشان بده، در غیر این صورت تایتل اصلی
     if(subTitleTag && subTitleTag.innerHTML.trim() !== "") {
         targetSubtitleSpan.innerHTML = subTitleTag.innerHTML;
     } else {
-       // targetSubtitleSpan.innerHTML = mainTitle;
-        targetSubtitleSpan.innerHTML = HmainTitle;
+        targetSubtitleSpan.innerHTML = mainTitle;
     }
 
     // ۳. کپی کردن کل بدنه جزئیات به داخل پاپ‌آپ
