@@ -1,8 +1,9 @@
-/*=============== کل کد اصلاح شده و هماهنگ با HTML شما ===============*/
+/*=============== کل کد جاوااسکریپت با حذف عکس در حالت ویدیو ===============*/
 
 // Toggling Skill Tabs
 const tabs = document.querySelectorAll('[data-target]');
 const tabContent = document.querySelectorAll('[data-content]');
+
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
         const target = document.querySelector(tab.dataset.target);
@@ -38,9 +39,9 @@ document.addEventListener('click', (e) => {
 function togglePortfolioPopup() {
     const popup = document.querySelector('.portfolio-popup');
     popup.classList.toggle('open');
-    // قطع صدای ویدیو هنگام بستن: محتوای بندانگشتی را ریست می‌کنیم
     if(!popup.classList.contains('open')) {
-        document.querySelector('.pp-thumbnail').innerHTML = '<img src="" class="portfolio-popup-img">';
+        // ریست کردن محتوا هنگام بستن برای قطع صدا
+        document.querySelector('.pp-thumbnail').innerHTML = '';
     }
 }
 
@@ -52,35 +53,33 @@ function portfolioItemDetails(portfolioItem) {
     const popupSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
     const popupBody = document.querySelector('.portfolio-popup-body');
 
-    // ۱. مدیریت بخش ویدیو یا عکس
+    // ۱. مدیریت بخش ویدیو یا عکس (تغییر اصلی اینجا کلیک شده)
     if (portfolioItem.classList.contains('is-video-project')) {
-        // پیدا کردن آی‌فریم داخل دیتای مخفی HTML شما
         const originalIframe = portfolioItem.querySelector('iframe');
         if(originalIframe) {
+            // فقط ویدیو را اضافه می‌کنیم و هیچ تگ img نمی‌سازیم
             thumbnailContainer.innerHTML = `<iframe src="${originalIframe.src}" width="100%" height="350" frameborder="0" allow="autoplay"></iframe>`;
         }
-        popupContent.style.gridTemplateColumns = '1fr';
+        popupContent.style.gridTemplateColumns = '1fr'; // تمام عرض برای ویدیو
     } else {
+        // برای پروژه‌های غیر ویدیویی، عکس نمایش داده می‌شود
         const imgSrc = portfolioItem.querySelector('.work-img').src;
         thumbnailContainer.innerHTML = `<img src="${imgSrc}" class="portfolio-popup-img">`;
-        popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // دو ستونه برای عکس
     }
 
-    // ۲. اصلاح دسته‌بندی بالای پاپ‌آپ (Featured - Category)
-    // پیدا کردن نام دسته‌بندی از روی کلاس‌های Mix (web, design, app)
+    // ۲. آپدیت خودکار دسته‌بندی بالای پاپ‌آپ
     let category = "Project";
     if(portfolioItem.classList.contains('web')) category = "Web Development";
     if(portfolioItem.classList.contains('design')) category = "Digital Design";
     if(portfolioItem.classList.contains('app')) category = "Video & Multimedia";
-    
     popupSubtitleSpan.innerHTML = category;
 
-    // ۳. انتقال محتوا به پاپ‌آپ
-    // یک کپی از محتوا می‌گیریم تا تغییرات روی نسخه اصلی اثر نگذارد
+    // ۳. کپی کردن جزئیات متن
     const detailsContent = portfolioItem.querySelector('.portfolio-item-details').cloneNode(true);
     detailsContent.style.display = 'block';
     
-    // حذف ویدیو از داخل Body (چون ویدیو را بالا نمایش دادیم)
+    // حذف ویدیوی تکراری از بخش توضیحات
     const videoInBody = detailsContent.querySelector('.video-container');
     if(videoInBody) videoInBody.remove();
 
@@ -145,7 +144,6 @@ if(navClose) navClose.addEventListener('click', () => navMenu.classList.remove('
 // Sub-filter Toggle
 const filterItems = document.querySelectorAll('.work-item');
 const designSubfilters = document.getElementById('design-subfilters');
-
 filterItems.forEach(item => {
     item.addEventListener('click', function() {
         if (this.getAttribute('data-filter') === '.design') {
