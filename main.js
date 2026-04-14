@@ -1,66 +1,46 @@
-/*=============== کل کد جاوااسکریپت اصلاح شده ===============*/
+/*=============== کل کد اصلاح شده و هماهنگ با HTML شما ===============*/
 
 // Toggling Skill Tabs
 const tabs = document.querySelectorAll('[data-target]');
 const tabContent = document.querySelectorAll('[data-content]');
-
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
         const target = document.querySelector(tab.dataset.target);
-
-        tabContent.forEach(tabContents => {
-            tabContents.classList.remove('skills-active');
-        })
+        tabContent.forEach(tc => tc.classList.remove('skills-active'));
         target.classList.add('skills-active');
-
-        tabs.forEach(tab => {
-            tab.classList.remove('skills-active');
-        })
+        tabs.forEach(t => t.classList.remove('skills-active'));
         tab.classList.add('skills-active');
-    })
-})
-
-// Mix it up Sorting
-let mixerPortfolio = mixitup('.work-container', {
-    selectors: {
-        target: '.work-card'
-    },
-    animation: {
-        duration: 300
-    }
+    });
 });
 
-// Active link changing
+// Mixitup Portfolio
+let mixerPortfolio = mixitup('.work-container', {
+    selectors: { target: '.work-card' },
+    animation: { duration: 300 }
+});
+
+// Active Link Work
 const linkWork = document.querySelectorAll('.work-item');
 function activeWork() {
-    linkWork.forEach(l => l.classList.remove('active-work'))
-    this.classList.add('active-work')
+    linkWork.forEach(l => l.classList.remove('active-work'));
+    this.classList.add('active-work');
 }
 linkWork.forEach(l => l.addEventListener('click', activeWork));
 
-const linkSubWork = document.querySelectorAll('.subwork-item');
-function activeSubWork() {
-    linkSubWork.forEach(l => l.classList.remove('active-subwork'))
-    this.classList.add('active-subwork')
-}
-linkSubWork.forEach(l => l.addEventListener('click', activeSubWork));
-
-
-// Portfolio Popup
+// Portfolio Popup Logic
 document.addEventListener('click', (e) => {
     if(e.target.classList.contains('work-button')){
         togglePortfolioPopup();
         portfolioItemDetails(e.target.parentElement);
     }
-})
+});
 
 function togglePortfolioPopup() {
     const popup = document.querySelector('.portfolio-popup');
     popup.classList.toggle('open');
-    
-    // قطع صدای ویدیو و ریست کردن محتوا هنگام بستن پاپ‌آپ
+    // قطع صدای ویدیو هنگام بستن: محتوای بندانگشتی را ریست می‌کنیم
     if(!popup.classList.contains('open')) {
-        document.querySelector('.pp-thumbnail').innerHTML = '<img src="" class="work-img" alt="">';
+        document.querySelector('.pp-thumbnail').innerHTML = '<img src="" class="portfolio-popup-img">';
     }
 }
 
@@ -69,103 +49,82 @@ document.querySelector('.portfolio-popup-close').addEventListener('click', toggl
 function portfolioItemDetails(portfolioItem) {
     const thumbnailContainer = document.querySelector('.pp-thumbnail');
     const popupContent = document.querySelector('.portfolio-popup-content');
-    const popupSubtitle = document.querySelector('.portfolio-popup-subtitle');
-    
-    // ۱. مدیریت محتوای تصویری یا ویدیویی
-    // فرض بر این است که برای ویدیوها، لینک گوگل درایو را در دیتای کارت یا یک لینک مخفی دارید
-    const videoLinkTag = portfolioItem.querySelector('.portfolio-item-details a[href*="drive.google.com"]');
-    
-    if (portfolioItem.classList.contains('is-video-project') && videoLinkTag) {
-        let videoUrl = videoLinkTag.href.replace('/view', '/preview').replace('?usp=sharing', '');
-        thumbnailContainer.innerHTML = `<iframe src="${videoUrl}" width="100%" height="300px" frameborder="0" allow="autoplay"></iframe>`;
-        popupContent.style.gridTemplateColumns = '1fr'; // حالت تمام‌عرض برای ویدیو
+    const popupSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
+    const popupBody = document.querySelector('.portfolio-popup-body');
+
+    // ۱. مدیریت بخش ویدیو یا عکس
+    if (portfolioItem.classList.contains('is-video-project')) {
+        // پیدا کردن آی‌فریم داخل دیتای مخفی HTML شما
+        const originalIframe = portfolioItem.querySelector('iframe');
+        if(originalIframe) {
+            thumbnailContainer.innerHTML = `<iframe src="${originalIframe.src}" width="100%" height="350" frameborder="0" allow="autoplay"></iframe>`;
+        }
+        popupContent.style.gridTemplateColumns = '1fr';
     } else {
         const imgSrc = portfolioItem.querySelector('.work-img').src;
-        thumbnailContainer.innerHTML = `<img src="${imgSrc}" class="work-img" alt="">`;
-        popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // حالت دو ستونه برای عکس
+        thumbnailContainer.innerHTML = `<img src="${imgSrc}" class="portfolio-popup-img">`;
+        popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)';
     }
 
-    // ۲. آپدیت کردن تایتل و ساب‌تایتل بالای پاپ‌آپ (حل مشکل Featured - Web)
-    const categoryName = portfolioItem.querySelector('.work-item')?.textContent || "Project";
-    const mainTitle = portfolioItem.querySelector('.work-title').innerHTML;
+    // ۲. اصلاح دسته‌بندی بالای پاپ‌آپ (Featured - Category)
+    // پیدا کردن نام دسته‌بندی از روی کلاس‌های Mix (web, design, app)
+    let category = "Project";
+    if(portfolioItem.classList.contains('web')) category = "Web Development";
+    if(portfolioItem.classList.contains('design')) category = "Digital Design";
+    if(portfolioItem.classList.contains('app')) category = "Video & Multimedia";
     
-    popupSubtitle.innerHTML = `Featured - <span>${categoryName}</span>`;
+    popupSubtitleSpan.innerHTML = category;
 
-    // ۳. کپی کردن جزئیات پروژه
-    document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
+    // ۳. انتقال محتوا به پاپ‌آپ
+    // یک کپی از محتوا می‌گیریم تا تغییرات روی نسخه اصلی اثر نگذارد
+    const detailsContent = portfolioItem.querySelector('.portfolio-item-details').cloneNode(true);
+    detailsContent.style.display = 'block';
     
-    // ۴. اصلاح تایتل داخل Body پاپ‌آپ
-    const detailsTitle = document.querySelector('.portfolio-popup-body .details-title');
-    if(detailsTitle) {
-        detailsTitle.innerHTML = mainTitle;
-    }
+    // حذف ویدیو از داخل Body (چون ویدیو را بالا نمایش دادیم)
+    const videoInBody = detailsContent.querySelector('.video-container');
+    if(videoInBody) videoInBody.remove();
+
+    popupBody.innerHTML = detailsContent.innerHTML;
 }
 
-// Services Popup
-const modalViews = document.querySelectorAll('.services-modal');
-const modelBtns = document.querySelectorAll('.services-button');
-const modalCloses = document.querySelectorAll('.services-modal-close');
+// Services Modal
+const modalViews = document.querySelectorAll('.services-modal'),
+      modelBtns = document.querySelectorAll('.services-button'),
+      modalCloses = document.querySelectorAll('.services-modal-close');
 
 let modal = function(modalClick) {
     modalViews[modalClick].classList.add('active-modal');
 }
+modelBtns.forEach((mb, i) => mb.addEventListener('click', () => modal(i)));
+modalCloses.forEach((mc) => mc.addEventListener('click', () => {
+    modalViews.forEach((mv) => mv.classList.remove('active-modal'));
+}));
 
-modelBtns.forEach((modelBtn, i) => {
-    modelBtn.addEventListener('click', () => {
-        modal(i);
-    })
-})
-
-modalCloses.forEach((modalClose) => {
-    modalClose.addEventListener('click', () => {
-        modalViews.forEach((modalView) => {
-            modalView.classList.remove('active-modal');
-        })
-    })
-})
-
-// Swiper Testimonial
+// Swiper
 let swiper = new Swiper(".testimonials-container", {
-    spaceBetween: 24,
-    loop: true,
-    grabCursor: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-        576: { slidesPerView: 2 },
-        768: { slidesPerView: 2, spaceBetween: 48 },
-    },
+    spaceBetween: 24, loop: true, grabCursor: true,
+    pagination: { el: ".swiper-pagination", clickable: true },
+    breakpoints: { 576: { slidesPerView: 2 }, 768: { slidesPerView: 2, spaceBetween: 48 } },
 });
 
 // Input Animation
 const inputs = document.querySelectorAll('.input');
-function focusFunc() {
-    this.parentNode.classList.add('focus');
-}
-function blurFunc() {
-    if(this.value == "") {
-        this.parentNode.classList.remove('focus');
-    }
-}
 inputs.forEach((input) => {
-    input.addEventListener('focus', focusFunc);
-    input.addEventListener('blur', blurFunc);
-})
+    input.addEventListener('focus', () => input.parentNode.classList.add('focus'));
+    input.addEventListener('blur', () => {
+        if(input.value == "") input.parentNode.classList.remove('focus');
+    });
+});
 
-// Scroll Section Active Link
+// Nav Highlighter
 const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', navHighlighter);
-
-function navHighlighter() {
+window.addEventListener('scroll', () => {
     let scrollY = window.pageYOffset;
     sections.forEach(current => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 50;
-        const sectionId = current.getAttribute('id');
-
-        const navLink = document.querySelector('.nav-menu a[href*=' + sectionId + ']');
+        const sectionHeight = current.offsetHeight,
+              sectionTop = current.offsetTop - 50,
+              sectionId = current.getAttribute('id'),
+              navLink = document.querySelector('.nav-menu a[href*=' + sectionId + ']');
         if(navLink) {
             if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                 navLink.classList.add('active-link');
@@ -173,67 +132,50 @@ function navHighlighter() {
                 navLink.classList.remove('active-link');
             }
         }
-    })
-}
-
-// Activating Sidebar
-const navMenu = document.getElementById('sidebar');
-const navToggle = document.getElementById('nav-toggle');
-const navClose = document.getElementById('nav-close');
-
-if(navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-sidebar');
-    })
-}
-if(navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-sidebar');
-    })
-}
-
-// Form Submission
-const form = document.querySelector(".contact-form");
-async function handleSubmit(event) {
-    event.preventDefault();
-    var status = document.createElement("p");
-    status.style.color = "#c5f011";
-    status.style.marginTop = "10px";
-    
-    var data = new FormData(event.target);
-    fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            status.innerHTML = "Thanks! Your message has been sent successfully.";
-            form.reset();
-            form.appendChild(status);
-        } else {
-            response.json().then(data => {
-                status.innerHTML = Object.hasOwn(data, 'errors') ? data["errors"].map(error => error["message"]).join(", ") : "Oops! Problem submitting form";
-                form.appendChild(status);
-            })
-        }
-    }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form";
-        form.appendChild(status);
     });
-}
-if(form) form.addEventListener("submit", handleSubmit);
+});
 
-// Sub Work Filter Toggle
-const filterItemsList = document.querySelectorAll('.work-item');
+// Sidebar Toggle
+const navMenu = document.getElementById('sidebar'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close');
+if(navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('show-sidebar'));
+if(navClose) navClose.addEventListener('click', () => navMenu.classList.remove('show-sidebar'));
+
+// Sub-filter Toggle
+const filterItems = document.querySelectorAll('.work-item');
 const designSubfilters = document.getElementById('design-subfilters');
 
-filterItemsList.forEach(item => {
+filterItems.forEach(item => {
     item.addEventListener('click', function() {
-        if (this.getAttribute('data-filter') === '.design' || this.getAttribute('data-filter') === '.all') {
-             // اگر دوست داری در حالت All هم فیلترهای دیزاین باشن، اینجا بمونه
-             if(designSubfilters) designSubfilters.style.display = (this.getAttribute('data-filter') === '.design') ? 'flex' : 'none';
+        if (this.getAttribute('data-filter') === '.design') {
+            designSubfilters.style.display = 'flex';
         } else {
-            if(designSubfilters) designSubfilters.style.display = 'none';
+            designSubfilters.style.display = 'none';
         }
     });
 });
+
+// Form Handling
+const form = document.querySelector(".contact-form");
+if(form) {
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const status = document.createElement("p");
+        status.style.color = "#c5f011";
+        const data = new FormData(event.target);
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                status.innerHTML = "Sent Successfully!";
+                form.reset();
+            } else {
+                status.innerHTML = "Error submitting form.";
+            }
+            form.appendChild(status);
+        });
+    });
+}
