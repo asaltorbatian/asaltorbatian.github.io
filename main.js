@@ -69,12 +69,33 @@ function portfolioItemDetails(portfolioItem) {
     }
 
     // ۲. آپدیت خودکار دسته‌بندی بالای پاپ‌آپ
+    // ۲. آپدیت هوشمند دسته‌بندی و زیرمجموعه‌ها
     let category = "Project";
-    if(portfolioItem.classList.contains('web')) category = "Web Development";
-    if(portfolioItem.classList.contains('design')) category = "Digital Design";
-    if(portfolioItem.classList.contains('app')) category = "Video & Multimedia";
+    
+    if (portfolioItem.classList.contains('web')) {
+        category = "Web Development";
+    } 
+    else if (portfolioItem.classList.contains('app')) {
+        category = "Video & Multimedia";
+    } 
+    else if (portfolioItem.classList.contains('design')) {
+        // چک کردن کلاس‌های زیرمجموعه که در HTML دادی
+        if (portfolioItem.classList.contains('ai')) {
+            category = "AI Enhanced";
+        } else if (portfolioItem.classList.contains('identity')) {
+            category = "Identity Design";
+        } else if (portfolioItem.classList.contains('invite')) {
+            category = "Cards & Invites";
+        } else if (portfolioItem.classList.contains('manipulation')) {
+            category = "Photo Edit";
+        } else {
+            category = "Digital Design"; // حالت رزرو اگر کلاس فرعی نداشت
+        }
+    }
+    
+    // نمایش تایتل دقیق در پاپ‌آپ
     popupSubtitleSpan.innerHTML = category;
-
+    
     // ۳. کپی کردن جزئیات متن
     const detailsContent = portfolioItem.querySelector('.portfolio-item-details').cloneNode(true);
     detailsContent.style.display = 'block';
