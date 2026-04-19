@@ -57,6 +57,10 @@ function togglePortfolioPopup() {
 document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
 
 function portfolioItemDetails(portfolioItem) {
+    // اگر آیتم متعلق به گالری بود، بقیه تابع اجرا نشود
+    if (portfolioItem.classList.contains('gallery')) {
+        return; 
+    }
     const thumbnailContainer = document.querySelector('.pp-thumbnail');
     const popupContent = document.querySelector('.portfolio-popup-content');
     const popupSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
