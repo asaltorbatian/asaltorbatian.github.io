@@ -183,7 +183,18 @@ filterItems.forEach(item => {
         }
     });
 });
-
+// gallery Sub-filter Toggle
+const gfilterItems = document.querySelectorAll('.work-item');
+const gallerySubfilters = document.getElementById('gallery-subfilters');
+gfilterItems.forEach(item => {
+    item.addEventListener('click', function() {
+        if (this.getAttribute('data-filter') === '.gallery') {
+            gallerySubfilters.style.display = 'flex';
+        } else {
+            gallerySubfilters.style.display = 'none';
+        }
+    });
+});
 // Form Handling
 const form = document.querySelector(".contact-form");
 if(form) {
