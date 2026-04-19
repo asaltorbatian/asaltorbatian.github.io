@@ -218,3 +218,69 @@ if(form) {
         });
     });
 }
+//gallery
+/* ۱. دیتای متنی برای هر بخش گالری */
+const galleryInfo = {
+    ".gallery": { 
+        title: "Visual Gallery", 
+        desc: "Explore my visual storytelling through photography and digital art." 
+    },
+    ".creative": { 
+        title: "Creative Illustrations", 
+        desc: "Using imagination and digital tools to create fun, engaging visual concepts." 
+    },
+    ".mobilegraphy": { 
+        title: "Mobilegraphy & Edit", 
+        desc: "Capturing details of life and nature, professionally edited on mobile." 
+    },
+    ".social": { 
+        title: "Social Ads Photography", 
+        desc: "Commercial content designed to boost engagement and brand identity on Instagram." 
+    }
+};
+
+/* ۲. منطق نمایش هدر گالری هنگام کلیک روی فیلترها */
+document.querySelectorAll('.work-item, .subwork-item').forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        const header = document.getElementById('gallery-header');
+        
+        // اگر فیلتر مربوط به بخش گالری بود
+        if(filter.includes('gallery') || filter.includes('creative') || filter.includes('mobilegraphy') || filter.includes('social')) {
+            header.style.display = 'block';
+            header.style.animation = 'fadeIn 0.5s ease forwards';
+            
+            // پیدا کردن متن مناسب از دیتا
+            const info = galleryInfo[filter] || galleryInfo[".gallery"];
+            document.getElementById('gallery-title').innerText = info.title;
+            document.getElementById('gallery-desc').innerText = info.desc;
+        } else {
+            // برای بخش‌های وب و دیزاین، هدر گالری مخفی شود
+            header.style.display = 'none';
+        }
+    });
+});
+
+/* ۳. تابع باز کردن عکس بزرگ (Lightbox) */
+function openFullImage(src) {
+    let overlay = document.querySelector('.full-img-overlay');
+    
+    // اگر المان لایت‌باکس هنوز ساخته نشده، بسازش
+    if(!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'full-img-overlay';
+        overlay.innerHTML = `<img src="" alt="Full View">`;
+        document.body.appendChild(overlay);
+        
+        // بستن با کلیک روی فضای خالی
+        overlay.onclick = () => {
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto'; // بازگشت اسکرول صفحه
+        };
+    }
+    
+    const fullImg = overlay.querySelector('img');
+    fullImg.src = src;
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه زیر عکس
+}
