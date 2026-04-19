@@ -580,8 +580,8 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 #gallery-header {
     margin-top: -1rem;
     padding: 1rem 2rem;
-   /* border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.03);  یک هاله بسیار ملایم */
+   /* border-radius: 1rem; */
+    background: rgb(16 16 25 / 27%);  یک هاله بسیار ملایم
     margin-bottom: 2.5rem !important;
     --text-color: #858507 !important;
 }
