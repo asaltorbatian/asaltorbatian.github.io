@@ -249,7 +249,6 @@ document.querySelectorAll('.work-item, .subwork-item').forEach(button => {
             
             // پیدا کردن متن مناسب از دیتا
             const info = galleryInfo[filter] || galleryInfo[".gallery"];
-            document.getElementById('gallery-title').innerText = info.title;
             document.getElementById('gallery-desc').innerText = info.desc;
         } else {
             // برای بخش‌های وب و دیزاین، هدر گالری مخفی شود
