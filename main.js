@@ -227,10 +227,10 @@ if(form) {
 /* ۱. دیتای متنی (بدون تغییر) */
 const galleryInfo = {
     ".creative": { 
-        desc: "Using imagination and digital tools to create fun, engaging visual concepts." 
+        desc: "Using imagination and digital tools to create fun, engaging visual concepts, complemented by hand-drawn sketches and pen techniques." 
     },
     ".mobilegraphy": { 
-        desc: "Capturing details of life and nature, professionally edited on mobile." 
+        desc: "A collection of mobile photography capturing the silent beauty of nature and the hidden details of everyday life, professionally edited to enhance visual quality and depth." 
     },
     ".social": { 
         desc: "Commercial content designed to boost engagement and brand identity on Instagram." 
