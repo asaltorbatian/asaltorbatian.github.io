@@ -575,3 +575,49 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 .portfolio-popup.video-modal-open .portfolio-popup-info {
     padding: 30px !important;
 }
+
+/* ۱. استایل هدر گالری با انیمیشن ظهور نرم */
+#gallery-header {
+    margin-top: -1rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03); /* یک هاله بسیار ملایم */
+    margin-bottom: 2.5rem !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ۲. نمایش ۳ ستونه در مانیتور */
+@media screen and (min-width: 768px) {
+    .work-container.grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 2rem;
+    }
+}
+
+/* ۳. لایت‌باکس (نمایش عکس بزرگ روی کل صفحه) */
+.full-img-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none; /* در حالت عادی مخفی */
+    align-items: center; justify-content: center;
+    z-index: 10000;
+    cursor: zoom-out;
+}
+
+.full-img-overlay img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 0.5rem;
+    border: 3px solid rgba(255,255,255,0.1);
+}
+
+/* ۴. تغییر نشانگر موس روی عکس‌های گالری */
+.gallery-img {
+    cursor: zoom-in !important;
+}
