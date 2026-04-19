@@ -224,8 +224,9 @@ if(form) {
 }
 //gallery
 /* ۱. دیتای متنی برای هر بخش گالری */
+/* ۱. دیتای متنی (بدون تغییر) */
 const galleryInfo = {
-       ".creative": { 
+    ".creative": { 
         desc: "Using imagination and digital tools to create fun, engaging visual concepts." 
     },
     ".mobilegraphy": { 
@@ -236,23 +237,22 @@ const galleryInfo = {
     }
 };
 
-/* ۲. منطق نمایش هدر گالری هنگام کلیک روی فیلترها */
-document.querySelectorAll('.work-item, .subwork-item').forEach(button => {
+/* ۲. منطق نمایش و مخفی‌سازی هوشمند */
+document.querySelectorAll('.work__item, .subwork-item').forEach(button => {
     button.addEventListener('click', () => {
         const filter = button.getAttribute('data-filter');
         const header = document.getElementById('gallery-header');
+        const descElement = document.getElementById('gallery-desc');
         
-        // اگر فیلتر مربوط به بخش گالری بود
-        if(filter.includes('gallery') || filter.includes('creative') || filter.includes('mobilegraphy') || filter.includes('social')) {
+        // اگر روی یکی از ۳ دسته خاص کلیک شد
+        if(galleryInfo[filter]) {
             header.style.display = 'block';
-            header.style.animation = 'fadeIn 0.5s ease forwards';
-            
-            // پیدا کردن متن مناسب از دیتا
-            const info = galleryInfo[filter] || galleryInfo[".gallery"];
-            document.getElementById('gallery-desc').innerText = info.desc;
-        } else {
-            // برای بخش‌های وب و دیزاین، هدر گالری مخفی شود
-            header.style.display = 'none';
+            descElement.innerText = galleryInfo[filter].desc;
+        } 
+        // اگر روی هر دکمه دیگری (مثل All، Web، یا All Photos) کلیک شد
+        else {
+            header.style.display = 'none'; // مخفی کردن کل باکس
+            descElement.innerText = "";    // خالی کردن متن برای اطمینان
         }
     });
 });
