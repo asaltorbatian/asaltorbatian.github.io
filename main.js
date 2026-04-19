@@ -225,11 +225,7 @@ if(form) {
 //gallery
 /* ۱. دیتای متنی برای هر بخش گالری */
 const galleryInfo = {
-    ".gallery": { 
-        title: "Visual Gallery", 
-        desc: "Explore my visual storytelling through photography and digital art." 
-    },
-    ".creative": { 
+       ".creative": { 
         title: "Creative Illustrations", 
         desc: "Using imagination and digital tools to create fun, engaging visual concepts." 
     },
