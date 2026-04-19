@@ -226,15 +226,12 @@ if(form) {
 /* ۱. دیتای متنی برای هر بخش گالری */
 const galleryInfo = {
        ".creative": { 
-        title: "Creative Illustrations", 
         desc: "Using imagination and digital tools to create fun, engaging visual concepts." 
     },
     ".mobilegraphy": { 
-        title: "Mobilegraphy & Edit", 
         desc: "Capturing details of life and nature, professionally edited on mobile." 
     },
     ".social": { 
-        title: "Social Ads Photography", 
         desc: "Commercial content designed to boost engagement and brand identity on Instagram." 
     }
 };
