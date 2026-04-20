@@ -472,7 +472,7 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
     .home-container { row-gap: 2rem; }
     .home-img { display: block; width: 250px; justify-self: center; }
     .my-info { display: none; }
-    .home-social { left: initial; right: -1rem; flex-direction: column; row-gap: 3.5rem; }
+    .home-social { left: initial; right: -2rem; flex-direction: column; row-gap: 3.5rem; top: -5rem;}
     .home-social-follow { font-size: var(--smaller-font-size); transform: rotate(90deg); }
     .home-social-links { flex-direction: column; row-gap: .25rem; }
     .home-social-link { font-size: var(--normal-font-size); }
