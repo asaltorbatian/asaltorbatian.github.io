@@ -623,8 +623,8 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
     cursor: zoom-in !important;
 }
 
-// PROGRESS DIAL
-// Set up the floating progress bar
+/*// PROGRESS DIAL
+// Set up the floating progress bar*/
   .progress-bar {
     width: 52px;
     height: 52px;
@@ -636,9 +636,10 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
      -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+      z-index: 1000;
   }
 
-// SCROLL TO TOP BUTTON
+/*// SCROLL TO TOP BUTTON*/
 .btn-top {
   font-size: 25px;
   height: 60px;
@@ -647,7 +648,8 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
   position: fixed;
   right: 27px;
   bottom: 28px;
-  color: #ffff0080;
+ /*color: #ffff0080;*/
+    color: var(--first-color);
   text-align: center;
   text-decoration: none;
 }
