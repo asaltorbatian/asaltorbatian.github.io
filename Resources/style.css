@@ -622,3 +622,38 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 .gallery-img {
     cursor: zoom-in !important;
 }
+
+// PROGRESS DIAL
+// Set up the floating progress bar
+  .progress-bar {
+    width: 52px;
+    height: 52px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    visibility: hidden;
+    opacity: 0;
+     -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+// SCROLL TO TOP BUTTON
+.btn-top {
+  font-size: 25px;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  position: fixed;
+  right: 27px;
+  bottom: 28px;
+  color: #ffff0080;
+  text-align: center;
+  text-decoration: none;
+}
+
+.is-visible {
+  /* the button becomes visible */
+  visibility: visible;
+  opacity: 1;
+}
