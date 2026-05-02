@@ -648,10 +648,11 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
   position: fixed;
   right: 27px;
   bottom: 28px;
- /*color: #ffff0080;*/
-    color: var(--first-color);
+ color: #ffff0080;
+  /*  color: var(--first-color);*/
   text-align: center;
   text-decoration: none;
+    z-index: 1001; /* یک لایه بالاتر بیاورید */
 }
 
 .is-visible {
