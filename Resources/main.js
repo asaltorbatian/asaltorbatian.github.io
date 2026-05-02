@@ -299,7 +299,7 @@ $(document).ready(function(){
     'max' : 100,
     'width' : 50,
     'height' : 50,
-    'fgColor' : 'rgba(77, 91, 109, 0.8)',
+    'fgColor' : 'rgb(255 255 255)',
     'skin' : 'tron',
     'thickness' : .2,
     'displayInput' : false,
