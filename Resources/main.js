@@ -301,7 +301,7 @@ $(document).ready(function(){
     'height' : 50,
 
      'fgColor' : '#ffffff', // رنگ بخش پر شده (سفید)
-    'bgColor' : '#ff0000',
+    'bgColor' : 'hsl(240deg 20% 4.9%)',
       
     'skin' : 'tron',
     'thickness' : .2,
