@@ -299,7 +299,10 @@ $(document).ready(function(){
     'max' : 100,
     'width' : 50,
     'height' : 50,
-    'fgColor' : 'rgb(255 255 255)',
+
+     'fgColor' : '#ffffff', // رنگ بخش پر شده (سفید)
+    'bgColor' : '#ff0000',
+      
     'skin' : 'tron',
     'thickness' : .2,
     'displayInput' : false,
