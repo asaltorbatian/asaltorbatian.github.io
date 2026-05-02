@@ -623,40 +623,37 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
     cursor: zoom-in !important;
 }
 
-/*// PROGRESS DIAL
-// Set up the floating progress bar*/
-  .progress-bar {
+/*scroll  btn */
+ /* تنظیمات باکس نگهدارنده */
+.progress-bar {
     width: 52px;
     height: 52px;
     position: fixed;
     bottom: 30px;
     right: 30px;
-    visibility: hidden;
+    visibility: hidden; /* در حالت عادی مخفی است */
     opacity: 0;
-     -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
     transition: all 0.3s;
-      z-index: 1000;
-  }
-
-/*// SCROLL TO TOP BUTTON*/
-.btn-top {
-  font-size: 25px;
-  height: 60px;
-  width: 60px;
-  line-height: 60px;
-  position: fixed;
-  right: 27px;
-  bottom: 28px;
- color: #ffff0080;
-  /*  color: var(--first-color);*/
-  text-align: center;
-  text-decoration: none;
-    z-index: 1001; /* یک لایه بالاتر بیاورید */
+    z-index: 1000;
 }
 
-.is-visible {
-  /* the button becomes visible */
-  visibility: visible;
-  opacity: 1;
+/* تنظیمات دکمه داخل باکس */
+.btn-top {
+    font-size: 20px; /* سایز آیکون را کمی کوچک کنید تا وسط دایره جا شود */
+    height: 52px;   /* هم‌اندازه با والد */
+    width: 52px;    /* هم‌اندازه با والد */
+    line-height: 52px;
+    position: absolute; /* نسبت به progress-bar جابجا شود */
+    right: 0;
+    bottom: 0;
+    color: #ffff0080;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1001; 
+}
+
+/* نمایش دکمه هنگام اسکرول[cite: 4] */
+.progress-bar.is-visible {
+    visibility: visible;
+    opacity: 1;
 }
