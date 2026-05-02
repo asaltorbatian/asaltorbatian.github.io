@@ -285,8 +285,67 @@ function openFullImage(src) {
 //scroll right 
 $(document).ready(function(){
   
-  // Smooth scrolling to any internal tags
-$('a[href*=#]:not([href=#])').click(function() {
+  // ۱. تنظیمات اولیه متغیرها
+  var offset = 100, // مقداری که بعد از آن دکمه ظاهر می‌شود
+      scroll_top_duration = 700,
+      $back_to_top = $('.btn-top'),
+      $thedial = $('.dial'),
+      $progress_bar = $('.progress-bar');
+  
+  // ۲. راه‌اندازی دایره گرافیکی (jQuery Knob)
+  // مطمئن شوید کتابخانه jQuery Knob در پروژه لود شده باشد
+  $thedial.knob({
+    'min' : 0,
+    'max' : 100,
+    'width' : 50,
+    'height' : 50,
+    'fgColor' : 'rgba(77, 91, 109, 0.8)',
+    'skin' : 'tron',
+    'thickness' : .2,
+    'displayInput' : false,
+    'displayPreview' : false,
+    'readOnly' : true
+  });
+
+  // ۳. مدیریت اسکرول پنجره
+  $(window).scroll(function(){
+    
+    var s = $(window).scrollTop(),
+        d = $(document).height(),
+        c = $(window).height();
+    
+    // محاسبه درصد اسکرول برای دایره
+    var scrollPercent = (s / (d - c)) * 100;
+
+    // نمایش یا مخفی کردن دکمه بر اساس مقدار اسکرول
+    if (s > offset) {
+        $progress_bar.addClass('is-visible');
+    } else {
+        $progress_bar.removeClass('is-visible');
+    }
+
+    // آپدیت کردن مقدار دایره[cite: 4]
+    $('.dial').val(scrollPercent).change();
+    
+    // مدیریت ظاهر هدر در هنگام اسکرول
+    if (s > 0) {
+        $('header').addClass('scrolled fade');
+    } else {
+        $('header').removeClass('scrolled fade');
+    }
+  });
+
+  // ۴. اسکرول نرم به بالا هنگام کلیک روی دکمه[cite: 4]
+  $back_to_top.on('click', function(e){
+    e.preventDefault();
+    $('body,html').animate({
+      scrollTop: 0
+    }, scroll_top_duration);
+  });
+
+  // ۵. اصلاح تداخل اسکرول نرم لینک‌های داخلی[cite: 4]
+  // این بخش از تداخل دکمه بالا با بقیه لینک‌های منو جلوگیری می‌کند
+  $('a[href*="#"]:not([href="#"]):not(.btn-top)').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -298,57 +357,5 @@ $('a[href*=#]:not([href=#])').click(function() {
       }
     }
   });
-  
-  var offset = 100,
-    scroll_top_duration = 700,
-    $back_to_top = $('.btn-top'),
-    $thedial = $('.dial'),
-    $progress_bar = $('.progress-bar');
-  
-  // Initialize the progress dial
-    $thedial.knob({
-      'min' : 0,
-      'max' : 100,
-      'width' : 50,
-      'height' : 50,
-      'fgColor' : 'rgba(77, 91, 109, 0.8)',
-      'skin' : 'tron',
-      'thickness' : .2,
-      'displayInput' : false,
-      'displayPreview' : false,
-      'readOnly' : true
-    });
 
-  $(window).scroll(function(){
-    
-    // Hide or show the progress bar
-    ( $(this).scrollTop() > offset ) ? $progress_bar.addClass('is-visible') : $progress_bar.removeClass('is-visible');
-    
-     // Get the window position and set it to a variale
-      var s = $(window).scrollTop(),
-      d = $(document).height(),
-      c = $(window).height();
-      scrollPercent = (s / (d-c)) * 100;
-
-      // Bind the window position to the progress dial
-      $('.dial').val(scrollPercent).change();
-      
-      if (s > 0 ) {
-         $('header').addClass('scrolled fade');
-     }
-
-      if (s <= 0 ) {
-        $('header').removeClass('scrolled fade');
-      }    
-     
-    });
-
-  //smooth scroll to top
-  $back_to_top.on('click', function(e){
-    e.preventDefault();
-    $('body,html').animate({
-      scrollTop: 0 ,
-        }, scroll_top_duration
-      );
-    });
 });
