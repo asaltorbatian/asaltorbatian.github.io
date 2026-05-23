@@ -21,12 +21,21 @@ let mixerPortfolio = mixitup('.work-container', {
 });
 
 // Active Link Work
+// Active Link Work
 const linkWork = document.querySelectorAll('.work-item');
+
 function activeWork() {
     linkWork.forEach(l => l.classList.remove('active-work'));
     this.classList.add('active-work');
 }
+
 linkWork.forEach(l => l.addEventListener('click', activeWork));
+
+
+// Default Active Filter
+window.addEventListener('load', () => {
+    document.querySelector('[data-filter=".web"]').click();
+});
 
 
 // Active Link Sub Work
