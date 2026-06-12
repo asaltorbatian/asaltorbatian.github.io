@@ -270,26 +270,40 @@ document.querySelectorAll('.work__item, .subwork-item').forEach(button => {
 function openFullImage(src) {
     let overlay = document.querySelector('.full-img-overlay');
     
-    // اگر المان لایت‌باکس هنوز ساخته نشده، بسازش
     if(!overlay) {
         overlay = document.createElement('div');
         overlay.className = 'full-img-overlay';
-        overlay.innerHTML = `<img src="" alt="Full View">`;
+
+        overlay.innerHTML = `
+            <button class="close-full-img">&times;</button>
+            <img src="" alt="Full View">
+        `;
+
         document.body.appendChild(overlay);
-        
-        // بستن با کلیک روی فضای خالی
-        overlay.onclick = () => {
+
+        const closeBtn = overlay.querySelector('.close-full-img');
+
+        // بستن با دکمه X
+        closeBtn.onclick = () => {
             overlay.style.display = 'none';
-            document.body.style.overflow = 'auto'; // بازگشت اسکرول صفحه
+            document.body.style.overflow = 'auto';
+        };
+
+        // بستن با کلیک فضای خالی
+        overlay.onclick = (e) => {
+            if(e.target === overlay) {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         };
     }
     
     const fullImg = overlay.querySelector('img');
+
     fullImg.src = src;
     overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه زیر عکس
+    document.body.style.overflow = 'hidden';
 }
-
 
 //scroll right 
 $(document).ready(function(){
