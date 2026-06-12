@@ -687,10 +687,13 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
     background: transparent;
     border: none;
 
-    color: white;
+   /* color: white;*/
     font-size: 45px;
     cursor: pointer;
     z-index: 10000;
+
+    color: #ffff0080;
+    background-color: transparent;
 }
 
 
