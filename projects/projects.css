@@ -343,6 +343,8 @@ h3 {
 }
 
 .featured-image {
+    width: 70%;
+
     overflow: hidden;
 
     margin: 4rem auto;
@@ -786,14 +788,16 @@ h3 {
     }
 
     .featured-image {
+        width: 85%;
         margin: 3rem auto;
+
         border-radius: 1.5rem;
     }
 }
 
 
 /* =========================
-   MOBILE NAVIGATION
+   MOBILE
 ========================= */
 
 @media screen and (max-width: 768px) {
@@ -881,6 +885,7 @@ h3 {
     }
 
     .featured-image {
+        width: 92%;
         margin: 2.5rem auto;
     }
 
@@ -922,6 +927,7 @@ h3 {
     }
 
     .featured-image {
+        width: 100%;
         margin: 2rem auto;
 
         border-radius: 1rem;
