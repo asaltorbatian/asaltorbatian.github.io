@@ -626,13 +626,13 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 
     position:fixed;
 
-    right:32px;
+    right:30px;
 
-    bottom:32px;
+    bottom:30px;
 
-    width:64px;
+    width:60px;
 
-    height:64px;
+    height:60px;
 
     display:flex;
 
@@ -642,23 +642,16 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 
     border-radius:50%;
 
-    background:rgba(14,14,20,.85);
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:
-    0 8px 25px rgba(0,0,0,.45),
-    0 0 20px rgba(139,140,14,.18);
-
     opacity:0;
 
     visibility:hidden;
 
-    transform:translateY(25px) scale(.9);
+    transform:translateY(20px);
 
     transition:.35s;
 
     z-index:999;
+
 }
 
 .scroll-progress.show{
@@ -667,17 +660,7 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 
     visibility:visible;
 
-    transform:translateY(0) scale(1);
-
-}
-
-.scroll-progress:hover{
-
-    transform:translateY(-4px) scale(1.08);
-
-    box-shadow:
-    0 12px 35px rgba(0,0,0,.5),
-    0 0 28px rgba(139,140,14,.4);
+    transform:translateY(0);
 
 }
 
@@ -685,25 +668,13 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 
     position:absolute;
 
-    font-size:23px;
+    font-size:24px;
 
-    color:#d7d731;
-
-    transition:.3s;
-
-}
-
-.scroll-progress:hover i{
-
-    transform:translateY(-3px);
+    color:#ffff0080;
 
 }
 
 .scroll-progress svg{
-
-    position:absolute;
-
-    inset:0;
 
     transform:rotate(-90deg);
 
@@ -713,7 +684,7 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 
     fill:none;
 
-    stroke:rgba(255,255,255,.08);
+    stroke:hsl(240deg 13.73% 10% / 86%);
 
     stroke-width:3;
 
@@ -723,7 +694,7 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 
     fill:none;
 
-    stroke:#8b8c0e;
+    stroke:#ffffff;
 
     stroke-width:3;
 
@@ -733,10 +704,9 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 
     stroke-dashoffset:163.4;
 
-    transition:.08s linear;
+    transition:.1s linear;
 
 }
-
 
 .video-container {
     position: relative;
