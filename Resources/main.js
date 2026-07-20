@@ -326,7 +326,15 @@ window.addEventListener("scroll",()=>{
 
     circle.style.strokeDashoffset=circumference-(percent*circumference);
 
-    progress.classList.toggle("show",scrollTop>120);
+    if(scrollTop>100){
+
+        progress.classList.add("show");
+
+    }else{
+
+        progress.classList.remove("show");
+
+    }
 
 });
 
