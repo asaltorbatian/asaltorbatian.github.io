@@ -34,6 +34,8 @@
 }
 
 html {
+    max-width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -42,6 +44,8 @@ body {
     color: var(--text);
     font-family: 'Poppins', sans-serif;
     line-height: 1.7;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body.lock {
@@ -860,21 +864,16 @@ h3 {
     }
 
     .filters {
-        flex-wrap: nowrap;
-
-        overflow-x: auto;
-
-        padding-bottom: 0.5rem;
-
-        scrollbar-width: none;
-    }
-
-    .filters::-webkit-scrollbar {
-        display: none;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+        overflow: visible;
+        padding-bottom: 0;
     }
 
     .filter {
-        flex: 0 0 auto;
+        min-width: 0;
+        width: 100%;
     }
 
     .cta-box,
