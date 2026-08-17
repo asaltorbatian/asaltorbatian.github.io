@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.f0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asal Torbatian | Portfolio</title>
-    <link rel="icon" type="image/png" href="Images/favicon.png">
+    <link rel="icon" type="image/webp" href="Images/favicon.webp">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="Resources/style.css">
     <meta property="og:title" content="Asal Torbatian | Portfolio">
 <meta property="og:description" content="Graphic & Web Designer, Front-End Developer">
-<meta property="og:image" content="https://asaltorbatian.github.io/Images/preview.png">
-<meta property="og:url" content="https://asaltorbatian.github.io">
+<meta property="og:image" content="https://asall.site/Images/preview.webp">
+<meta property="og:url" content="https://asall.site/">
 <meta property="og:type" content="website">
 
     
@@ -100,10 +99,10 @@
                 </div>
 
                 
-           <!--  <img src="Images/IMG_2713.png" alt="" class="home-img">-->
+           <!--  <img src="Images/IMG_2713.webp" alt="" class="home-img">-->
 
             <div class="home-data" style="text-align: center;">
-               <img src="Images/IMG_27133.png" alt="Asal" style="max-width:15%; border-radius: 47%; max-width: 15%; border: 3px solid #8b8c0e; object-fit: cover;"> 
+               <img src="Images/IMG_27133.webp" alt="Asal" style="max-width:15%; border-radius: 47%; max-width: 15%; border: 3px solid #8b8c0e; object-fit: cover;">
                 <h1 class="home-title">Hi, I'm Asal</h1>
                 <h3 class="home-subtitle">Graphic & Web Designer, Front-End Developer</h3>
                 <p class="home-description">I am a multi-disciplinary designer with a proven track record in Web Development,
@@ -156,11 +155,11 @@
 
 
         
-        <section class="about section" id="about" style="padding: 2.5rem 0 2rem; !important">
+        <section class="about section" id="about" style="padding: 2.5rem 0 2rem !important;">
             <h2 class="section-title" data-heading="My Intro">About me</h2>
 
             <div class="about-container container grid">
-               <!--  <img src="Images/IMG_2713.png" alt="" class="about-img"> -->
+               <!--  <img src="Images/IMG_2713.webp" alt="" class="about-img"> -->
 
 
 <div class="about-data">
@@ -525,551 +524,31 @@
             </div>
         </section>
 
-     <section class="work section" id="portfolio">
-    <h2 class="section-title" data-heading="My Portfolio">Recent Works</h2>
+     <section class="featured-work section" id="portfolio">
+            <h2 class="section-title" data-heading="My Portfolio">Featured Projects</h2>
+            <p class="featured-work-intro">A selection of my strongest work across software development, web design and visual identity.</p>
+            <div class="featured-work-grid container">
+                <article class="featured-work-card">
+                    <a href="projects/tillbite/index.html" class="featured-work-image"><img src="Images/TillBite/TillBite.webp" alt="TillBite restaurant POS system and mobile ordering application" loading="lazy" decoding="async"></a>
+                    <div class="featured-work-copy"><span class="featured-work-category">Case Study · Web Application</span><h3>TillBite POS System</h3><p>A full-stack restaurant management, POS and mobile ordering system.</p><a href="projects/tillbite/index.html" class="featured-work-link">View Case Study <i class="uil uil-arrow-right"></i></a></div>
+                </article>
+                <article class="featured-work-card">
+                    <a href="projects/selected-web-design/index.html" class="featured-work-image"><img src="Images/WebPhoto/WebPages (1).webp" alt="Selected responsive web design projects" loading="lazy" decoding="async"></a>
+                    <div class="featured-work-copy"><span class="featured-work-category">Collection · Web Design</span><h3>Selected Web Design Projects</h3><p>Six responsive website concepts across hospitality, retail, beauty and architecture.</p><a href="projects/selected-web-design/index.html" class="featured-work-link">View Collection <i class="uil uil-arrow-right"></i></a></div>
+                </article>
+                <article class="featured-work-card">
+                    <a href="projects/pop-street/index.html" class="featured-work-image"><img src="Images/PopStreet/Bulls.webp" alt="Pop Street Birmingham restaurant menu design" loading="lazy" decoding="async"></a>
+                    <div class="featured-work-copy"><span class="featured-work-category">Project · Graphic Design</span><h3>Pop Street Birmingham</h3><p>Restaurant menu systems created for Bulls Street Burgers and LuvGreek.</p><a href="projects/pop-street/index.html" class="featured-work-link">View Project <i class="uil uil-arrow-right"></i></a></div>
+                </article>
+            </div>
+            <div class="featured-work-cta container">
+                <div><span class="featured-work-category">Explore the complete portfolio</span><h3>More work across design, video, photography and AI</h3><p>Browse every project and collection in one focused place.</p></div>
+                <a href="projects/index.html" class="button">View All Projects <i class="uil uil-arrow-right button-icon"></i></a>
+            </div>
+        </section>
 
-    <div class="work-filters">
-        <span class="work-item " data-filter="all">All</span>
-        <span class="work-item active-work" data-filter=".web">Web Development</span>
-        <span class="work-item" data-filter=".design">Digital Design</span>
-        <span class="work-item" data-filter=".app">Video & Multimedia</span>
-        <span class="work-item" data-filter=".gallery">Visual Gallery</span>
-    </div>
-
-    <div class="work-subfilters" id="design-subfilters" style="display: none; justify-content: center; column-gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; row-gap: 0.5rem;">
-        <span class="subwork-item active-subwork" data-filter=".design" style="cursor: pointer; padding: 0.25rem 0.75rem;">All Designs</span>
-        <span class="subwork-item" data-filter=".ai" style="cursor: pointer; padding: 0.25rem 0.75rem;">AI Enhanced</span>
-        <span class="subwork-item" data-filter=".identity" style="cursor: pointer; padding: 0.25rem 0.75rem;">Identity</span>
-        <span class="subwork-item" data-filter=".invite" style="cursor: pointer; padding: 0.25rem 0.75rem;">Cards</span>
-       <!-- <span class="subwork-item" data-filter=".manipulation" style="cursor: pointer; padding: 0.25rem 0.75rem;">Photo edit</span>-->
-    </div>
-    <div class="work-subfilters" id="gallery-subfilters" style="display: none; justify-content: center; column-gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; row-gap: 0.5rem;">
-        <span class="subwork-item active-subwork" data-filter=".gallery" style="cursor: pointer; padding: 0.25rem 0.75rem;">All photos</span>
-        <span class="subwork-item" data-filter=".creative" style="cursor: pointer; padding: 0.25rem 0.75rem;">Creative Illustrations</span>
-        <span class="subwork-item" data-filter=".mobilegraphy" style="cursor: pointer; padding: 0.25rem 0.75rem;">Mobilegraphy & Edit</span>
-        <span class="subwork-item" data-filter=".social" style="cursor: pointer; padding: 0.25rem 0.75rem;">Social Ads Photography</span>
-    </div>
-         <div id="gallery-header" style="display: none; text-align: center; margin-bottom: 2rem;">
-    <p id="gallery-desc" class="section__subtitle" style="max-width: 600px; margin: 0 auto; font-style: italic; color: var(--text-color);"></p>
-</div>
-         
-         
-    <div class="work-container container grid">
         
-        <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (1).png" alt="AI Interior" class="work-img">
-            <span class="project-subtitle" style="display: none;">AI Enhanced</span>
-            <h3 class="work-title">AI Interior Design</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">AI Interior Design</h3>
-                <p class="details-description">Modern and minimalist living room concept generated using advanced AI prompting for realistic lighting and textures.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Apr 2026</span></li>
-                    <li>Technologies - <span>Gemini 1.5 Pro</span></li>
-                    <li>Role - <span>AI Artist</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (2).png" alt="Fashion" class="work-img">
-            <span class="project-subtitle" style="display: none;">AI Enhanced</span>
-            <h3 class="work-title">AI Fashion eCommerce</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">AI Fashion eCommerce</h3>
-                <p class="details-description">Conceptual fashion shoot for an eCommerce brand, focusing on urban style and fabric details.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Mar 2026</span></li>
-                    <li>Technologies - <span>AI Generation</span></li>
-                    <li>Role - <span>Creative Direction</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (3).png" alt="Nature" class="work-img">
-            <span class="project-subtitle" style="display: none;">AI Enhanced</span>
-            <h3 class="work-title">AI Cinematic Landscapes</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">AI Cinematic Landscapes</h3>
-                <p class="details-description">Exploring nature's beauty through hyper-realistic AI-generated environmental art.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Feb 2026</span></li>
-                    <li>Technologies - <span>AI Enhanced</span></li>
-                    <li>Role - <span>Environment Design</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (4).png" alt="Sci-Fi" class="work-img">
-            <span class="project-subtitle" style="display: none;">AI Enhanced</span>
-            <h3 class="work-title">AI Futuristic Cityscape</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">AI Futuristic Cityscape</h3>
-                <p class="details-description">Concept art for a sci-fi world featuring neon lighting and advanced architecture.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Jan 2026</span></li>
-                    <li>Technologies - <span>Prompt Engineering</span></li>
-                    <li>Role - <span>Concept Artist</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (5).png" alt="Fantasy" class="work-img">
-            <span class="project-subtitle" style="display: none;">AI Enhanced</span>
-            <h3 class="work-title">AI Fantasy Storybook Art</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">AI Fantasy Storybook Art</h3>
-                <p class="details-description">Whimsical characters and magical worlds designed for children's storytelling.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Apr 2026</span></li>
-                    <li>Technologies - <span>Gemini AI</span></li>
-                    <li>Role - <span>Illustrator</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (6).png" alt="Comedy" class="work-img">
-            <span class="project-subtitle" style="display: none;">AI Enhanced</span>
-            <h3 class="work-title">AI Visual Comedy Concepts</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">AI Visual Comedy Concepts</h3>
-                <p class="details-description">Funny and satirical visual content created using AI manipulation.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Mar 2026</span></li>
-                    <li>Technologies - <span>AI Design</span></li>
-                    <li>Role - <span>Creator</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (7).png" alt="Food" class="work-img">
-            <span class="project-subtitle" style="display: none;">AI Enhanced</span>
-            <h3 class="work-title">Food Photography AI</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Food Photography AI</h3>
-                <p class="details-description">Appetizing and professional food visuals for restaurant marketing.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Apr 2026</span></li>
-                    <li>Technologies - <span>Prompt Engineering</span></li>
-                    <li>Role - <span>Visual Designer</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-card mix design ai">
-            <img src="Images/AIPhoto/AI (8).png" alt="Industrial" class="work-img">
-            <span class="project-subtitle" style="display: none;">AI Enhanced</span>
-            <h3 class="work-title">AI Industrial Design Art</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">AI Industrial Design Art</h3>
-                <p class="details-description">Mechanical and industrial production concepts visualised through AI.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Apr 2026</span></li>
-                    <li>Technologies - <span>Gemini 1.5</span></li>
-                    <li>Role - <span>Designer</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-card mix design identity">
-            <img src="Images/negahlogo.png" alt="Brand Logo" class="work-img">
-            <span class="project-subtitle" style="display: none;">Identity</span>
-            <h3 class="work-title">Social Media account Logo</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">   
-                <h3 class="details-title">Social Media account Logo</h3>
-                <p class="details-description">A cohesive visual identity specifically optimized for high-performance across YouTube,
-                    Telegram, and Instagram. This project focuses on minimalist logo design and "Profile-First" aesthetics.
-                    The design integrates a modern tech-driven style with a vibrant palette to drive engagement</p>
-                <ul class="details-info">
-                    <li>Created - <span>Mar 2026</span></li>
-                    <li>Technologies - <span>Adobe Illustrator / AI Tools</span></li>
-                    <li>Role - <span>Brand Identity Designer</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="work-card mix design identity">
-            <img src="Images/razhanlogo.png" alt="Brand Logo" class="work-img">
-            <span class="project-subtitle" style="display: none;">Identity</span>
-            <h3 class="work-title">Razhan Company Logo</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Razhan Company Logo</h3>
-                <p class="details-description">A strategic logo design for a software development firm, engineered to symbolize cutting-edge technology and innovation.
-                    The visual mark incorporates the brand's signature color
-                    palette to evoke trust and professionalism, while the minimalist geometry represents scalability and digital precision.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Oct 2021</span></li>
-                    <li>Technologies - <span>Adobe Illustrator / Picsart</span></li>
-                    <li>Role - <span>Brand Identity Designer</span></li>
-                </ul>
-            </div>
-        </div>
-         <div class="work-card mix design identity">
-            <img src="Images/PopStreet/Bulls.png" alt="Brand Logo" class="work-img">
-            <span class="project-subtitle" style="display: none;">Identity</span>
-            <h3 class="work-title">Pop Street Menu Design</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Pop Street Menu Design</h3>
-                <p class="details-description">A bold and high-contrast menu design created for Bulls Street Burgers at Pop Street Birmingham. 
-                    The design was developed to reflect the brand’s energetic street-food identity through strong typography, structured layouts,
-                    and visually engaging food imagery while keeping the menu clear, modern, and easy to navigate.</p>
-                <ul class="details-info">
-                    <li>Created - <span>May 2026</span></li>
-                    <li>Technologies - <span>Adobe Photoshop / Canva / Lightroom</span></li>
-                    <li>Role - <span>Graphic Designer & Brand Visual Designer</span></li>
-                </ul>
-            </div>
-        </div>
-         <div class="work-card mix design identity">
-            <img src="Images/PopStreet/LUV.png" alt="Brand Logo" class="work-img">
-            <span class="project-subtitle" style="display: none;">Identity</span>
-            <h3 class="work-title">Pop Street Menu Design</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Pop Street Menu Design</h3>
-                <p class="details-description">A clean and modern restaurant menu design created for LuvGreek at Pop Street Birmingham. The project focused 
-                    on combining bold typography, food photography, and a fresh Mediterranean-inspired visual style to create an engaging customer 
-                    experience while maintaining strong brand consistency across print and digital formats.</p>
-                <ul class="details-info">
-                    <li>Created - <span>May 2026</span></li>
-                    <li>Technologies - <span>Adobe Photoshop / Canva / Lightroom</span></li>
-                    <li>Role - <span>Graphic Designer & Menu Designer</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="work-card mix design invite">
-            <img src="Images/WelcomeCover.png" alt="wedding welcome card" class="work-img">
-            <span class="project-subtitle" style="display: none;">Cards</span>
-            <h3 class="work-title">Wedding Welcome Card</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Wedding Welcome Card</h3>
-                <p class="details-description">A bespoke welcome card designed for a modern wedding ceremony. This project focuses on minimalist aesthetics,
-                    sophisticated typography, and a harmonious layout to create a warm and premium first impression for guests.
-                    The design is optimized for high-quality print production.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Apr 2025</span></li>
-                    <li>Technologies - <span>Photoshop / Print Design</span></li>
-                    <li>Role - <span>Graphic Designer</span></li>
-                </ul>
-            </div>
-        </div>
-        
-
-    <!--    <div class="work-card mix design manipulation">
-            <img src="Images/edit1.png" alt="Edit" class="work-img">
-             <span class="project-subtitle" style="display: none;">Photo Edit</span>
-            <h3 class="work-title">Editing photo from AI to art</h3>
-            <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
-            <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Editing photo from AI to art</h3>
-                <p class="details-description">A creative visual composition that takes Generative AI output as a foundation and transforms it into a cohesive artwork.
-                    While the background landscape was generated via AI prompting, I used sophisticated photo editing in Photoshop to layer the flag of Iran,
-                    a stylized map, and historical symbols to create a powerful visual narrative suitable for cultural branding and digital media.</p>
-                <ul class="details-info">
-                    <li>Created - <span>Mar 2026</span></li>
-                    <li>Technologies - <span>Generative AI (Initial Output) / Adobe Photoshop</span></li>
-                    <li>Role - <span>Creative Visual Editor</span></li>
-                </ul>
-            </div>
-        </div>-->
-
-        <div class="work-card mix web">
-            <img  src="Images/WebPhoto/WebPages (1).JPEG" alt="Web Project" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Niccolo Italian Café</h3>
-        </div>
-        <div class="work-card mix web">
-            <img  src="Images/WebPhoto/WebPages (2).JPEG" alt="Web Project" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Koushk Pottery Studio</h3>
-        </div>
-        <div class="work-card mix web">
-            <img  src="Images/WebPhoto/WebPages (3).JPEG" alt="Web Project" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Artisanal Bakery & Baking Workshops</h3>
-        </div>
-        <div class="work-card mix web">
-            <img  src="Images/WebPhoto/WebPages (4).JPEG" alt="Web Project" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Ayvan Sazan Architecture Firm</h3>
-        </div>
-        <div class="work-card mix web">
-            <img  src="Images/WebPhoto/WebPages (5).JPEG" alt="Web Project" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Auto Parts Store</h3>
-        </div>
-        <div class="work-card mix web">
-            <img  src="Images/WebPhoto/WebPages (6).JPEG" alt="Web Project" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title"> Rose Beauty Cosmetics and Skin Care Site</h3>
-        </div>
-
-        <div class="work-card mix app is-video-project"> 
-            <img src="Images/LifestyleCover.png" alt="Video" class="work-img">
-            <span class="project-subtitle" style="display: none;"></span>
-            <h3 class="work-title">Lifestyle & Aesthetic</h3>
-            <span class="work-button">Watch Video <i class="uil uil-arrow-right work-button-icon"></i></span>
-                 <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Lifestyle & Aesthetic</h3>
-                      <div class="video-container">
-                         <iframe src="https://drive.google.com/file/d/1EQVmjlUvymog95qSNiT1M1kah8GjP3af/preview" ></iframe>
-                      </div>
-                      <p class="details-description">A professional color grading showcase transforming raw interior footage into a warm, inviting cinematic space.
-                          Focused on dynamic range recovery, natural skin tones, and sunlight enhancement.</p>
-                     <ul class="details-info">
-                      <li>Created - <span>Jul 2024</span></li>
-                      <li>Technologies  - <span>DaVinci / Color Correction Nodes</span></li>
-                      <li>Role  - <span>Video Editor</span></li>
-                    </ul>
-                 </div>
-         </div>
-
-        <div class="work-card mix app is-video-project"> 
-            <img src="Images/intro.png" alt="Video" class="work-img">
-            <span class="project-subtitle" style="display: none;"></span>
-            <h3 class="work-title">Podcast & Media Channel Intro</h3>
-            <span class="work-button">Watch Video <i class="uil uil-arrow-right work-button-icon"></i></span>
-                 <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Podcast & Media Channel Intro</h3>
-                      <div class="video-container">
-                         <iframe src="https://drive.google.com/file/d/1DADLMyizaCCDGPr9hmHCIXidoxMYuhZn/preview"></iframe>
-                      </div>
-                      <p class="details-description">A creative, high-energy introduction designed to establish a strong brand identity.
-                          This project features synced audio visualization and custom sound design paired with clean motion graphics. 
-                          Every visual transition is meticulously timed with audio cues to capture viewers' attention and create a professional first impression.</p>
-                     <ul class="details-info">
-                      <li>Created - <span>Mar 2026</span></li>
-                      <li>Technologies  - <span>Motion Graphics / Canva / Professional Sound Design</span></li>
-                      <li>Role  - <span>Motion Designer, Editor & Sound Editor</span></li>
-                    </ul>
-                 </div>
-         </div>
-
-        <div class="work-card mix app is-video-project"> 
-            <img src="Images/pro2cover.png" alt="Video" class="work-img">
-            <span class="project-subtitle" style="display: none;"></span>
-            <h3 class="work-title">Cinematic Grade: Before/After</h3>
-            <span class="work-button">Watch Video <i class="uil uil-arrow-right work-button-icon"></i></span>
-                 <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Cinematic Grade: Before/After</h3>
-                      <div class="video-container">
-                         <iframe src="https://drive.google.com/file/d/10QqtwuwY1sOTSx_n8hoeMoAfhBVu4zQi/preview"></iframe>
-                      </div>
-                      <p class="details-description">A professional Before/After showcase using cinematic color grading.
-                          This project transforms raw footage into a high-contrast visual experience,
-                          focusing on highlight recovery and skin tone preservation to demonstrate the power of professional post-production.</p>
-                     <ul class="details-info">
-                      <li>Created - <span>Jan 2022</span></li>
-                      <li>Technologies  - <span>Wondershare Filmora / Masking</span></li>
-                      <li>Role  - <span>Colorist</span></li>
-                    </ul>
-                 </div>
-         </div>
-
-        <div class="work-card mix app is-video-project"> 
-            <img src="Images/HobbyCover.png" alt="Video" class="work-img">
-            <span class="project-subtitle" style="display: none;"></span>
-            <h3 class="work-title">High-Engagement Instagram Story</h3>
-            <span class="work-button">Watch Video <i class="uil uil-arrow-right work-button-icon"></i></span>
-                 <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">High-Engagement Instagram Story</h3>
-                      <div class="video-container">
-                         <iframe src="https://drive.google.com/file/d/1TcG7M2iXbEm1bACKyQVsRrYPHiv2tJu8/preview"></iframe>
-                      </div>
-                      <p class="details-description">A creative social media edit designed to transform static photography into dynamic, thumb-stopping video content.
-                          Using AI-driven motion and seamless transitions, this project is optimized for Instagram Stories to maximize viewer retention and brand engagement.</p>
-                     <ul class="details-info">
-                      <li>Created - <span>Mar 2024</span></li>
-                      <li>Technologies  - <span>Luma AI / Filmora / InShot / Picsart</span></li>
-                      <li>Role  - <span>Content Creator & Video Editor</span></li>
-                    </ul>
-                 </div>
-         </div>
-
-        <div class="work-card mix app is-video-project"> 
-            <img src="Images/meandmygolf.png" alt="Video" class="work-img">
-            <span class="project-subtitle" style="display: none;"></span>
-            <h3 class="work-title">Dynamic golf Coaching-Me and My Golf Company</h3>
-            <span class="work-button">Watch Video <i class="uil uil-arrow-right work-button-icon"></i></span>
-                 <div class="portfolio-item-details" style="display: none;">
-                <h3 class="details-title">Dynamic golf Coaching-Me and My Golf Company</h3>
-                      <div class="video-container" >
-                         <iframe src="https://drive.google.com/file/d/1bMbiGKRvSZGr2RRvvCb-KBfM5PvRcl7j/preview"></iframe>
-                      </div>
-                      <p class="details-description">A high-energy, educational video edit created for "<a href="https://meandmygolf.com" target="_blank" style="color: #ffff0080;">Me and My Golf</a>", focused on improving iron ball striking.
-                          The goal was to transform raw coaching footage into a "scroll-stopping" social media asset that balances technical instruction with engaging visuals.</p>
-                     <ul class="details-info">
-                      <li>Created - <span>Apr 2026</span></li>
-                      <li>Technologies  - <span>Filmora</span></li>
-                      <li>Role  - <span>Motion Graphics, Audio Mastering, Multi-cam Editing</span></li>
-                    </ul>
-                 </div>
-         </div>
-        
-       <div class="work-card mix gallery creative">
-            <img src="Images/Creative/1 (1).PNG" alt="Creative" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Saffron Shimmer</h3>
-        </div>
-        <div class="work-card mix gallery creative">
-            <img src="Images/Creative/1 (2).PNG" alt="Creative" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Toastie Smile</h3>
-        </div>
-        <div class="work-card mix gallery creative">
-            <img src="Images/Creative/1 (3).PNG" alt="Creative" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Golden Joy</h3>
-        </div>
-        <div class="work-card mix gallery creative">
-            <img src="Images/Creative/1 (4).PNG" alt="Creative" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Milky Face</h3>
-        </div>
-        <div class="work-card mix gallery creative">
-            <img src="Images/Creative/1 (5).PNG" alt="Creative" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Cherry Pair</h3>
-        </div>
-        <div class="work-card mix gallery creative">
-            <img src="Images/Creative/1 (6).PNG" alt="Creative" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Green faces</h3>
-        </div>
-        <div class="work-card mix gallery creative">
-            <img src="Images/Creative/1 (7).PNG" alt="Creative" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Cookie Man</h3>
-        </div>
-        <div class="work-card mix gallery creative">
-            <img src="Images/Creative/1 (8).PNG" alt="Creative" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Donut Universe</h3>
-        </div>
-
-      <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (12).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-          <img src="Images/Mobilegraphy/1 (13).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Window to the Soul</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (1).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Slow & Steady</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (2).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Shadow of Love</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (3).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Nature's Pearls</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (4).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Nostalgic Café</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (5).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Tangerine High-Five</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (6).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Ruby Hearts</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (7).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Fiery Spirit</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (9).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Architectural Rhythm</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (10).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Autumn Whisper</h3>
-        </div>
-        <div class="work-card mix gallery mobilegraphy">
-            <img src="Images/Mobilegraphy/1 (11).PNG" alt="Photography" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Striped Explorer</h3>
-        </div>
-        
-
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/1.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Randevou Café</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/2.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Baame Shahr Restaurant</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/3.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Mr Avizheh Restaurant & Café</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/4.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Fifth Garden Café</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/n1.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Nicolo Café</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/n2.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Nicolo Café</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/n3.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Nicolo Café</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/s1.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Silo Restaurant & Café</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/s2.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Silo Restaurant & Café</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/v1.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Vira Foods Restaurant</h3>
-        </div>
-        <div class="work-card mix gallery social">
-            <img src="Images/Social/v2.PNG" alt="Advertising" class="work-img gallery-img" onclick="openFullImage(this.src)">
-            <h3 class="work-title">Vira Foods Restaurant</h3>
-        </div>
-        
-    </div>
-</section>
-        <div class="portfolio-popup">
-            <div class="portfolio-popup-inner">
-                <div class="portfolio-popup-content grid">
-                    <span class="portfolio-popup-close"><i class="uil uil-times"></i></span>
-                    <div class="pp-thumbnail">
-                        <img src="https://i.postimg.cc/sXLjnC5p/work-2.png" alt="" class="portfolio-popup-img">
-                    </div>
-                    
-                    <div class="portfolio-popup-info" style="background-color: hsl(240deg 20% 4.9%); border-radius: .5rem; padding: 2%;">
-                      <!--  <div class="portfolio-popup-subtitle">Featured - <span style="color:#8b8b0e;">Design</span></div> -->
-                        <div class="portfolio-popup-subtitle">Featured - <span style="color:#8b8b0e;"></span></div>
-                        <div class="portfolio-popup-body">
-                            <h3 class="details-title">App for Technology & Services</h3>
-                            <p class="details-description">A stylish burger restaurant mobile app interface displayed on two smartphones</p>
-                            <ul class="details-info">
-                                <li>Created - <span>Apr 2025</span></li>
-                                <li>Technologies - <span>html css</span></li>
-                                <li>Role - <span>frontend</span></li>
-                                <li>View - <span><a href="#">www.domain.com</a></span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <section class="services section" id="services" style="padding: 11.5rem 0 2rem !important;">
+<section class="services section" id="services" style="padding: 11.5rem 0 2rem !important;">
             <h2 class="section-title" data-heading="Services">What I Offer</h2>
 
             <div class="services-container container grid">
@@ -1311,7 +790,7 @@
                         <div class="contact-card">
                             <i class="uil uil-linkedin contact-card-icon"></i>
                             <h3 class="contact-card-title">LinkedIn</h3>
-                            <a href="https://www.linkedin.com/in/asal-torbatian" target="_blank" class="home-social-link"
+                            <a href="https://www.linkedin.com/in/asal-torbatian" target="_blank" rel="noopener noreferrer" class="home-social-link"
                                 style="text-decoration: underline; font-size: var(--small-font-size) !important;">asal torbatian</a>
                             <span class="contact-button">Write me <i class="uil uil-arrow-right contact-button-icon"></i></span>
                         </div>
@@ -1440,10 +919,6 @@
 
     <!-- Scroll to Top Button -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>.
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
     <script src="Resources/main.js"></script> 
      
 </body>

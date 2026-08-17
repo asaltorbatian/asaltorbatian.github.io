@@ -2,7 +2,7 @@
 
 Welcome to the repository of my personal portfolio website! This project is a curated showcase of my journey as a **Front-End Developer**, **Web Designer**, and **Digital Artist**. It reflects my ability to bridge the gap between technical engineering and creative visual storytelling.
 
-🔗 **Live Demo:** [asaltorbatian.github.io](https://asaltorbatian.github.io/)
+🔗 **Live Demo:** [asall.site](https://asall.site/)
 
 ---
 
@@ -38,7 +38,7 @@ Beyond coding, this portfolio features a unique **Visual Gallery** where I explo
 I am always open to discussing new projects, creative ideas, or opportunities in the tech and design world.
 
 * **LinkedIn:** [linkedin.com/in/asal-torbatian](https://www.linkedin.com/in/asal-torbatian)
-* **Email:** [asaltorbatian1999@gmail.com](mailto:asaltorbatiyan@gmail.com)
+* **Email:** [asaltorbatian1999@gmail.com](mailto:asaltorbatian1999@gmail.com)
 
 ---
 *© 2026 Asal Torbatian. All rights reserved.*

@@ -1,354 +1,115 @@
-/*=============== کل کد جاوااسکریپت با حذف عکس در حالت ویدیو ===============*/
-
-// Toggling Skill Tabs
+// Skill tabs
 const tabs = document.querySelectorAll('[data-target]');
 const tabContent = document.querySelectorAll('[data-content]');
 
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
         const target = document.querySelector(tab.dataset.target);
-        tabContent.forEach(tc => tc.classList.remove('skills-active'));
+        if (!target) return;
+        tabContent.forEach(content => content.classList.remove('skills-active'));
+        tabs.forEach(item => item.classList.remove('skills-active'));
         target.classList.add('skills-active');
-        tabs.forEach(t => t.classList.remove('skills-active'));
         tab.classList.add('skills-active');
     });
 });
 
-// Mixitup Portfolio
-let mixerPortfolio = mixitup('.work-container', {
-    selectors: { target: '.work-card' },
-    animation: { duration: 300 }
+// Service modals
+const modalViews = document.querySelectorAll('.services-modal');
+const modalButtons = document.querySelectorAll('.services-button');
+const modalCloses = document.querySelectorAll('.services-modal-close');
+
+modalButtons.forEach((button, index) => {
+    button.addEventListener('click', () => modalViews[index]?.classList.add('active-modal'));
 });
 
-// Active Link Work
-// Active Link Work
-const linkWork = document.querySelectorAll('.work-item');
-
-function activeWork() {
-    linkWork.forEach(l => l.classList.remove('active-work'));
-    this.classList.add('active-work');
-}
-
-linkWork.forEach(l => l.addEventListener('click', activeWork));
-
-
-// Default Active Filter
-window.addEventListener('load', () => {
-    document.querySelector('[data-filter=".web"]').click();
+modalCloses.forEach(close => {
+    close.addEventListener('click', () => modalViews.forEach(modal => modal.classList.remove('active-modal')));
 });
 
-
-// Active Link Sub Work
-const linkSubWork = document.querySelectorAll('.subwork-item');
-function activeSubWork() {
-    linkSubWork.forEach(l => l.classList.remove('active-subwork'));
-    this.classList.add('active-subwork');
-}
-linkSubWork.forEach(l => l.addEventListener('click', activeSubWork));
-
-// Portfolio Popup Logic
-document.addEventListener('click', (e) => {
-    if(e.target.classList.contains('work-button')){
-        togglePortfolioPopup();
-        portfolioItemDetails(e.target.parentElement);
-    }
+modalViews.forEach(modal => {
+    modal.addEventListener('click', event => {
+        if (event.target === modal) modal.classList.remove('active-modal');
+    });
 });
 
-function togglePortfolioPopup() {
-    const popup = document.querySelector('.portfolio-popup');
-    popup.classList.toggle('open');
-    if(!popup.classList.contains('open')) {
-        // ریست کردن محتوا هنگام بستن برای قطع صدا
-        document.querySelector('.pp-thumbnail').innerHTML = '';
-    }
-}
-
-document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
-
-function portfolioItemDetails(portfolioItem) {
-    // اگر آیتم متعلق به گالری بود، بقیه تابع اجرا نشود
-    if (portfolioItem.classList.contains('gallery')) {
-        return; 
-    }
-    const thumbnailContainer = document.querySelector('.pp-thumbnail');
-    const popupContent = document.querySelector('.portfolio-popup-content');
-    const popupSubtitleSpan = document.querySelector('.portfolio-popup-subtitle span');
-    const popupBody = document.querySelector('.portfolio-popup-body');
-
-    // ۱. مدیریت بخش ویدیو یا عکس (تغییر اصلی اینجا کلیک شده)
-    if (portfolioItem.classList.contains('is-video-project')) {
-        const originalIframe = portfolioItem.querySelector('iframe');
-        if(originalIframe) {
-            // فقط ویدیو را اضافه می‌کنیم و هیچ تگ img نمی‌سازیم
-            thumbnailContainer.innerHTML = `<iframe src="${originalIframe.src}" width="100%" height="350" frameborder="0" allow="autoplay"></iframe>`;
-        }
-        popupContent.style.gridTemplateColumns = '1fr'; // تمام عرض برای ویدیو
-    } else {
-        // برای پروژه‌های غیر ویدیویی، عکس نمایش داده می‌شود
-        const imgSrc = portfolioItem.querySelector('.work-img').src;
-        thumbnailContainer.innerHTML = `<img src="${imgSrc}" class="portfolio-popup-img">`;
-        popupContent.style.gridTemplateColumns = 'repeat(2, 1fr)'; // دو ستونه برای عکس
-    }
-
-    // ۲. آپدیت خودکار دسته‌بندی بالای پاپ‌آپ
-    // ۲. آپدیت هوشمند دسته‌بندی و زیرمجموعه‌ها
-    let category = "Project";
-    
-    if (portfolioItem.classList.contains('web')) {
-        category = "Web Development";
-    } 
-    else if (portfolioItem.classList.contains('app')) {
-        category = "Video & Multimedia";
-    } 
-    else if (portfolioItem.classList.contains('design')) {
-        // چک کردن کلاس‌های زیرمجموعه که در HTML دادی
-        if (portfolioItem.classList.contains('ai')) {
-            category = "Digital Design - AI Enhanced";
-        } else if (portfolioItem.classList.contains('identity')) {
-            category = "Digital Design - Identity Design";
-        } else if (portfolioItem.classList.contains('invite')) {
-            category = "Digital Design - Cards & Invites";
-        } else if (portfolioItem.classList.contains('manipulation')) {
-            category = "Digital Design - Photo Edit";
-        } else {
-            category = "Digital Design"; // حالت رزرو اگر کلاس فرعی نداشت
-        }
-    }
-    
-    // نمایش تایتل دقیق در پاپ‌آپ
-    popupSubtitleSpan.innerHTML = category;
-    
-    // ۳. کپی کردن جزئیات متن
-    const detailsContent = portfolioItem.querySelector('.portfolio-item-details').cloneNode(true);
-    detailsContent.style.display = 'block';
-    
-    // حذف ویدیوی تکراری از بخش توضیحات
-    const videoInBody = detailsContent.querySelector('.video-container');
-    if(videoInBody) videoInBody.remove();
-
-    popupBody.innerHTML = detailsContent.innerHTML;
-}
-
-// Services Modal
-const modalViews = document.querySelectorAll('.services-modal'),
-      modelBtns = document.querySelectorAll('.services-button'),
-      modalCloses = document.querySelectorAll('.services-modal-close');
-
-let modal = function(modalClick) {
-    modalViews[modalClick].classList.add('active-modal');
-}
-modelBtns.forEach((mb, i) => mb.addEventListener('click', () => modal(i)));
-modalCloses.forEach((mc) => mc.addEventListener('click', () => {
-    modalViews.forEach((mv) => mv.classList.remove('active-modal'));
-}));
-
-// Swiper
-let swiper = new Swiper(".testimonials-container", {
-    spaceBetween: 24, loop: true, grabCursor: true,
-    pagination: { el: ".swiper-pagination", clickable: true },
-    breakpoints: { 576: { slidesPerView: 2 }, 768: { slidesPerView: 2, spaceBetween: 48 } },
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') modalViews.forEach(modal => modal.classList.remove('active-modal'));
 });
 
-// Input Animation
-const inputs = document.querySelectorAll('.input');
-inputs.forEach((input) => {
+// Contact input animation
+document.querySelectorAll('.input').forEach(input => {
     input.addEventListener('focus', () => input.parentNode.classList.add('focus'));
     input.addEventListener('blur', () => {
-        if(input.value == "") input.parentNode.classList.remove('focus');
+        if (input.value === '') input.parentNode.classList.remove('focus');
     });
 });
 
-// Nav Highlighter
+// Highlight the current homepage section
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
-    let scrollY = window.pageYOffset;
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight,
-              sectionTop = current.offsetTop - 50,
-              sectionId = current.getAttribute('id'),
-              navLink = document.querySelector('.nav-menu a[href*=' + sectionId + ']');
-        if(navLink) {
-            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLink.classList.add('active-link');
-            } else {
-                navLink.classList.remove('active-link');
-            }
-        }
+    const scrollY = window.pageYOffset;
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 50;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
+        if (!navLink) return;
+        navLink.classList.toggle('active-link', scrollY > sectionTop && scrollY <= sectionTop + section.offsetHeight);
     });
 });
 
-// Sidebar Toggle
-const navMenu = document.getElementById('sidebar'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close');
-if(navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('show-sidebar'));
-if(navClose) navClose.addEventListener('click', () => navMenu.classList.remove('show-sidebar'));
+// Mobile sidebar
+const navMenu = document.getElementById('sidebar');
+const navToggle = document.getElementById('nav-toggle');
+const navClose = document.getElementById('nav-close');
 
-// Sub-filter Toggle
-const filterItems = document.querySelectorAll('.work-item');
-const designSubfilters = document.getElementById('design-subfilters');
-filterItems.forEach(item => {
-    item.addEventListener('click', function() {
-        if (this.getAttribute('data-filter') === '.design') {
-            designSubfilters.style.display = 'flex';
-        } else {
-            designSubfilters.style.display = 'none';
-        }
-    });
+navToggle?.addEventListener('click', () => navMenu?.classList.add('show-sidebar'));
+navClose?.addEventListener('click', () => navMenu?.classList.remove('show-sidebar'));
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => navMenu?.classList.remove('show-sidebar'));
 });
-// gallery Sub-filter Toggle
-const gfilterItems = document.querySelectorAll('.work-item');
-const gallerySubfilters = document.getElementById('gallery-subfilters');
-gfilterItems.forEach(item => {
-    item.addEventListener('click', function() {
-        if (this.getAttribute('data-filter') === '.gallery') {
-            gallerySubfilters.style.display = 'flex';
-        } else {
-            gallerySubfilters.style.display = 'none';
-        }
-    });
-});
-// Form Handling
-const form = document.querySelector(".contact-form");
-if(form) {
-    form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const status = document.createElement("p");
-        status.style.color = "#c5f011";
-        const data = new FormData(event.target);
-        fetch(event.target.action, {
+
+// Contact form
+const form = document.querySelector('.contact-form');
+form?.addEventListener('submit', async event => {
+    event.preventDefault();
+    form.querySelector('.form-status')?.remove();
+    const status = document.createElement('p');
+    status.className = 'form-status';
+    status.style.color = '#c5f011';
+
+    try {
+        const response = await fetch(form.action, {
             method: form.method,
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                status.innerHTML = "Sent Successfully!";
-                form.reset();
-            } else {
-                status.innerHTML = "Error submitting form.";
-            }
-            form.appendChild(status);
+            body: new FormData(form),
+            headers: { Accept: 'application/json' }
         });
+        status.textContent = response.ok ? 'Sent Successfully!' : 'Error submitting form.';
+        if (response.ok) form.reset();
+    } catch {
+        status.textContent = 'Error submitting form.';
+    }
+
+    form.appendChild(status);
+});
+
+// Scroll progress button
+const progress = document.getElementById('scroll-progress');
+const circle = progress?.querySelector('.progress-circle');
+const radius = 26;
+const circumference = 2 * Math.PI * radius;
+
+if (progress && circle) {
+    circle.style.strokeDasharray = circumference;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = scrollableHeight > 0 ? scrollTop / scrollableHeight : 0;
+        circle.style.strokeDashoffset = circumference - percent * circumference;
+        progress.classList.toggle('show', scrollTop > 100);
+    });
+
+    progress.addEventListener('click', event => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
-//gallery
-/* ۱. دیتای متنی برای هر بخش گالری */
-/* ۱. دیتای متنی (بدون تغییر) */
-const galleryInfo = {
-    ".creative": { 
-        desc: "Using imagination and digital tools to create fun, engaging visual concepts, complemented by hand-drawn sketches and pen techniques." 
-    },
-    ".mobilegraphy": { 
-        desc: "A collection of mobile photography capturing the silent beauty of nature and the hidden details of everyday life, professionally edited to enhance visual quality and depth." 
-    },
-    ".social": { 
-        desc: "Commercial content designed to boost engagement and brand identity on Instagram." 
-    }
-};
-
-/* ۲. منطق نمایش و مخفی‌سازی هوشمند */
-document.querySelectorAll('.work__item, .subwork-item').forEach(button => {
-    button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-        const header = document.getElementById('gallery-header');
-        const descElement = document.getElementById('gallery-desc');
-        
-        // اگر روی یکی از ۳ دسته خاص کلیک شد
-        if(galleryInfo[filter]) {
-            header.style.display = 'block';
-            descElement.innerText = galleryInfo[filter].desc;
-        } 
-        // اگر روی هر دکمه دیگری (مثل All، Web، یا All Photos) کلیک شد
-        else {
-            header.style.display = 'none'; // مخفی کردن کل باکس
-            descElement.innerText = "";    // خالی کردن متن برای اطمینان
-        }
-    });
-});
-
-/* ۳. تابع باز کردن عکس بزرگ (Lightbox) */
-function openFullImage(src) {
-    let overlay = document.querySelector('.full-img-overlay');
-    
-    if(!overlay) {
-        overlay = document.createElement('div');
-        overlay.className = 'full-img-overlay';
-
-        overlay.innerHTML = `
-            <button class="close-full-img">&times;</button>
-            <img src="" alt="Full View">
-        `;
-
-        document.body.appendChild(overlay);
-
-        const closeBtn = overlay.querySelector('.close-full-img');
-
-        // بستن با دکمه X
-        closeBtn.onclick = () => {
-            overlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        };
-
-        // بستن با کلیک فضای خالی
-        overlay.onclick = (e) => {
-            if(e.target === overlay) {
-                overlay.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        };
-    }
-    
-    const fullImg = overlay.querySelector('img');
-
-    fullImg.src = src;
-    overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-//scroll right 
-const progress=document.getElementById("scroll-progress");
-
-const circle=document.querySelector(".progress-circle");
-
-const radius=26;
-
-const circumference=2*Math.PI*radius;
-
-circle.style.strokeDasharray=circumference;
-
-window.addEventListener("scroll",()=>{
-
-    const scrollTop=window.pageYOffset;
-
-    const docHeight=document.documentElement.scrollHeight-window.innerHeight;
-
-    const percent=scrollTop/docHeight;
-
-    circle.style.strokeDashoffset=circumference-(percent*circumference);
-
-    if(scrollTop>100){
-
-        progress.classList.add("show");
-
-    }else{
-
-        progress.classList.remove("show");
-
-    }
-
-});
-
-progress.addEventListener("click",(e)=>{
-
-    e.preventDefault();
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-});
-//end scroll
