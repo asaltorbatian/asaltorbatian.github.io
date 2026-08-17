@@ -83,6 +83,17 @@ h1, h2, h3 { color: var(--title); line-height: 1.2; }
 .product-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .25rem; }
 .button.secondary { background: transparent; border: 1px solid var(--border); color: var(--title); }
 .button.secondary:hover { border-color: var(--accent); color: var(--accent); }
+.coming-soon { padding-top: 0; }
+.coming-soon-box {
+  background: var(--surface);
+  border: 1px dashed rgba(167,168,18,.65);
+  border-radius: var(--radius);
+  padding: clamp(2rem, 6vw, 4rem);
+  text-align: center;
+}
+.coming-soon-box i { color: var(--accent); display: block; font-size: 2.5rem; margin-bottom: .75rem; }
+.coming-soon-box h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: .75rem; }
+.coming-soon-box p { margin-inline: auto; max-width: 620px; }
 .footer { border-top: 1px solid var(--border); padding: 2rem 0; }
 .footer .container { align-items: center; display: flex; font-size: .85rem; justify-content: space-between; }
 .lightbox { align-items: center; background: rgba(0,0,0,.94); display: none; inset: 0; justify-content: center; padding: 2rem; position: fixed; z-index: 50; }
