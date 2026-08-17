@@ -80,6 +80,9 @@ h1, h2, h3 { color: var(--title); line-height: 1.2; }
 .next .container { align-items: center; display: flex; gap: 2rem; justify-content: space-between; }
 .next h2 { color: #101018; margin-top: .35rem; }
 .button { align-items: center; background: #101018; border-radius: .6rem; color: white; display: inline-flex; gap: .5rem; padding: .85rem 1.2rem; }
+.product-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .25rem; }
+.button.secondary { background: transparent; border: 1px solid var(--border); color: var(--title); }
+.button.secondary:hover { border-color: var(--accent); color: var(--accent); }
 .footer { border-top: 1px solid var(--border); padding: 2rem 0; }
 .footer .container { align-items: center; display: flex; font-size: .85rem; justify-content: space-between; }
 .lightbox { align-items: center; background: rgba(0,0,0,.94); display: none; inset: 0; justify-content: center; padding: 2rem; position: fixed; z-index: 50; }
