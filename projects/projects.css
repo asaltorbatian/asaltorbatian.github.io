@@ -164,7 +164,11 @@ h3 {
 
 .nav-toggle,
 .nav-close {
+    align-items: center;
     display: none;
+    height: 44px;
+    justify-content: center;
+    min-width: 44px;
 
     cursor: pointer;
 
