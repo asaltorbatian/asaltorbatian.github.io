@@ -62,10 +62,15 @@ const navMenu = document.getElementById('sidebar');
 const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
 
-navToggle?.addEventListener('click', () => navMenu?.classList.add('show-sidebar'));
-navClose?.addEventListener('click', () => navMenu?.classList.remove('show-sidebar'));
+function setSidebar(open) {
+    navMenu?.classList.toggle('show-sidebar', open);
+    navToggle?.setAttribute('aria-expanded', String(open));
+}
+
+navToggle?.addEventListener('click', () => setSidebar(true));
+navClose?.addEventListener('click', () => setSidebar(false));
 document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => navMenu?.classList.remove('show-sidebar'));
+    link.addEventListener('click', () => setSidebar(false));
 });
 
 // Contact form
