@@ -44,18 +44,60 @@ document.querySelectorAll('.input').forEach(input => {
     });
 });
 
-// Highlight the current homepage section
+// Highlight the current homepage section without measuring layout on every scroll.
 const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 50;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
-        if (!navLink) return;
-        navLink.classList.toggle('active-link', scrollY > sectionTop && scrollY <= sectionTop + section.offsetHeight);
-    });
-});
+const sectionLinks = new Map(
+    [...sections].map(section => [
+        section.id,
+        document.querySelector(`.nav-menu a[href="#${section.id}"]`)
+    ])
+);
+
+if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+        const activeEntry = entries.find(entry => entry.isIntersecting);
+        if (!activeEntry) return;
+
+        sectionLinks.forEach((link, id) => {
+            link?.classList.toggle('active-link', id === activeEntry.target.id);
+        });
+    }, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
+
+    sections.forEach(section => sectionObserver.observe(section));
+} else {
+    let sectionBounds = [];
+    let sectionUpdateRequested = false;
+
+    const measureSections = () => {
+        sectionBounds = [...sections].map(section => ({
+            id: section.id,
+            top: section.offsetTop,
+            bottom: section.offsetTop + section.offsetHeight
+        }));
+    };
+
+    const updateActiveSection = () => {
+        const marker = window.scrollY + window.innerHeight * .35;
+        const active = sectionBounds.find(section => marker >= section.top && marker < section.bottom);
+        if (active) {
+            sectionLinks.forEach((link, id) => link?.classList.toggle('active-link', id === active.id));
+        }
+        sectionUpdateRequested = false;
+    };
+
+    const requestSectionUpdate = () => {
+        if (sectionUpdateRequested) return;
+        sectionUpdateRequested = true;
+        requestAnimationFrame(updateActiveSection);
+    };
+
+    measureSections();
+    window.addEventListener('scroll', requestSectionUpdate, { passive: true });
+    window.addEventListener('resize', () => {
+        measureSections();
+        requestSectionUpdate();
+    }, { passive: true });
+}
 
 // Mobile sidebar
 const navMenu = document.getElementById('sidebar');
@@ -105,13 +147,33 @@ const circumference = 2 * Math.PI * radius;
 
 if (progress && circle) {
     circle.style.strokeDasharray = circumference;
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset;
-        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const percent = scrollableHeight > 0 ? scrollTop / scrollableHeight : 0;
+    let scrollableHeight = 0;
+    let updateRequested = false;
+
+    const updateProgress = () => {
+        const scrollTop = window.scrollY;
+        if (scrollableHeight === 0) {
+            scrollableHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        }
+        const percent = Math.min(1, scrollTop / scrollableHeight);
         circle.style.strokeDashoffset = circumference - percent * circumference;
         progress.classList.toggle('show', scrollTop > 100);
-    });
+        updateRequested = false;
+    };
+
+    const requestProgressUpdate = () => {
+        if (updateRequested) return;
+        updateRequested = true;
+        requestAnimationFrame(updateProgress);
+    };
+
+    const resetScrollableHeight = () => {
+        scrollableHeight = 0;
+        requestProgressUpdate();
+    };
+
+    window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+    window.addEventListener('resize', resetScrollableHeight, { passive: true });
 
     progress.addEventListener('click', event => {
         event.preventDefault();

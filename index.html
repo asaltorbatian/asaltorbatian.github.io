@@ -7,8 +7,25 @@
     <meta name="description" content="Portfolio of Asal Torbatian, a UK-based graphic and web designer and front-end developer specialising in digital design, responsive websites and multimedia.">
     <link rel="canonical" href="https://asall.site/">
     <link rel="icon" type="image/webp" href="Images/favicon.webp">
-    <link rel="preload" href="Resources/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="Resources/unicons.css">
-    <link rel="stylesheet" href="Resources/style.css">
+    <link rel="preload" href="Resources/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Resources/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+      @font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url('Resources/fonts/poppins-400.woff2') format('woff2')}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:500;font-display:swap;src:url('Resources/fonts/poppins-500.woff2') format('woff2')}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url('Resources/fonts/poppins-600.woff2') format('woff2')}
+      :root{--hue-color:242;--mirage-color:hsl(210,10%,23%);--title-color:hsl(var(--hue-color),8%,95%);--text-color:hsl(var(--hue-color),8%,85%);--body-color:hsl(var(--hue-color),19%,5%);--box-color:hsl(var(--hue-color),14%,10%);--body-font:Poppins,sans-serif;--biggest-font-size:3rem;--h1-font-size:2.25rem;--h3-font-size:1.25rem;--normal-font-size:1rem;--small-font-size:.875rem;--smaller-font-size:.813rem;--font-medium:500;--font-bold:600;--mb075:.75rem;--mb1:1rem;--mb15:1.5rem;--mb2:2rem;--mb25:2.5rem}
+      *{box-sizing:border-box;margin:0;padding:0}html{max-width:100%;overflow-x:hidden;scroll-behavior:smooth}body,button,input{font-family:var(--body-font);font-size:var(--normal-font-size)}body{background:var(--body-color);color:var(--text-color);max-width:100%;overflow-x:hidden}h1,h2,h3{color:var(--title-color);font-weight:var(--font-bold)}ul{list-style:none}a{text-decoration:none}img{height:auto;max-width:100%}button{cursor:pointer}button,input{border:0;outline:0}.container{margin-left:auto;margin-right:auto;max-width:1250px}.grid{display:grid}.button{align-items:center;background:#ffff0080;border-radius:.25rem;color:var(--title-color);column-gap:.5rem;display:inline-flex;font-weight:var(--font-medium);padding:.75rem 1.4rem;position:relative;z-index:1}
+      .sidebar{background:var(--body-color);border-right:1px solid var(--box-color);height:100vh;position:fixed;width:100px}.nav-menu{position:fixed;transform:rotate(-90deg) translateX(-100%);transform-origin:left top;width:100vh}.menu,.nav-list{display:flex}.nav-list{flex-direction:row-reverse;margin:-2px auto 0}.nav-link{color:var(--title-color);float:right;font-weight:var(--font-medium);height:100%;line-height:100px;padding:0 1rem;position:relative}.nav-toggle{align-items:center;background:#ffff0080;border-radius:.25rem;color:var(--title-color);display:none;font-size:1.2rem;height:44px;justify-content:center;position:fixed;right:1.5rem;top:2rem;width:44px;z-index:999}.nav-close{align-items:center;cursor:pointer;display:none;font-size:1.5rem;height:44px;justify-content:center;position:absolute;right:1.25rem;top:1rem;width:44px}.nav-link.active-link,.nav-link:hover{color:#ffff0080}
+      .main{margin-left:100px}.home{background:url('Resources/home-bg2.webp') center/cover;height:100vh}.home-container{align-items:center;height:100%;position:relative}.home-social{align-items:center;column-gap:3.5rem;display:flex;left:0;position:absolute;top:1.8rem}.home-social-follow{font-weight:var(--font-medium);position:relative}.home-social-follow:after{background:var(--text-color);content:'';height:2px;position:absolute;right:-45%;top:50%;width:1rem}.home-social-links{column-gap:1rem;display:inline-flex}.home-social-link{color:var(--text-color);font-size:1.08rem}.home-img{display:none}.home-title{font-size:var(--biggest-font-size)}.home-subtitle{font-size:var(--h3-font-size);font-weight:var(--font-medium);margin-bottom:var(--mb075)}.home-description{margin-bottom:var(--mb2)}.my-info{bottom:1.8rem;column-gap:1.8rem;display:flex;left:0;position:absolute}.info-item{align-items:center;display:flex}.info-title,.info-subtitle{font-size:var(--small-font-size)}.info-title{font-weight:var(--font-medium)}.info-icon{color:#ffff0080;font-size:1.8rem;margin-right:var(--mb075)}
+      @media(max-width:1408px){.container{margin-left:var(--mb25);margin-right:var(--mb25)}}
+      @media(max-width:1024px){:root{--biggest-font-size:2rem;--h1-font-size:1.5rem;--h3-font-size:1.125rem;--normal-font-size:.938rem;--small-font-size:.813rem;--smaller-font-size:.75rem}.container{margin-left:var(--mb15);margin-right:var(--mb15)}}
+      @media(max-width:800px){.sidebar{transform:translateX(-100%);width:100%;z-index:999}.sidebar.show-sidebar{transform:translateX(0)}.nav-logo,.btn-share{display:none}.nav-menu{display:flex;height:100%;justify-content:center;transform:none;width:100%}.nav-list{align-items:center;flex-direction:column;height:100%;justify-content:center}.nav-link{line-height:1.5;padding:1rem 0}.nav-close,.nav-toggle{display:flex}.main{margin-left:0}}
+      @media(max-width:576px){.nav-toggle{left:1.5rem;right:auto}.home{align-items:initial;background-image:none;height:initial;padding:7rem 0 2rem}.home-container{row-gap:2rem}.my-info{display:none}.home-social{flex-direction:column;left:auto;right:1rem;row-gap:3.5rem;top:-5rem}.home-social-follow{font-size:var(--smaller-font-size);transform:rotate(90deg)}.home-social-links{flex-direction:column;row-gap:.25rem}.home-social-link{font-size:var(--normal-font-size)}}
+      @media(max-width:350px){.container{margin-left:var(--mb1);margin-right:var(--mb1)}.home-title{font-size:var(--h1-font-size)}.home-subtitle{font-size:var(--normal-font-size)}}
+    </style>
+    <link rel="preload" href="Resources/style.css?v=20260826" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="Resources/unicons.css?v=20260826" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="Resources/style.css?v=20260826"><link rel="stylesheet" href="Resources/unicons.css?v=20260826"></noscript>
     <meta property="og:title" content="Asal Torbatian | Portfolio">
 <meta property="og:description" content="Graphic & Web Designer, Front-End Developer">
 <meta property="og:image" content="https://asall.site/Images/preview.webp">
@@ -122,7 +139,7 @@
            <!--  <img src="Images/IMG_2713.webp" alt="" class="home-img">-->
 
             <div class="home-data" style="text-align: center;">
-               <img src="Images/IMG_27133.webp" alt="Asal" style="max-width:15%; border-radius: 47%; max-width: 15%; border: 3px solid #8b8c0e; object-fit: cover;" width="502" height="497" srcset="Images/responsive/IMG_27133-480.webp 480w, Images/IMG_27133.webp 502w" sizes="160px" fetchpriority="high">
+               <img src="Images/IMG_27133.webp" alt="Asal" style="max-width:15%; border-radius: 47%; border: 3px solid #8b8c0e; object-fit: cover;" width="502" height="497" srcset="Images/responsive/IMG_27133-160.webp 160w, Images/responsive/IMG_27133-256.webp 256w, Images/responsive/IMG_27133-480.webp 480w, Images/IMG_27133.webp 502w" sizes="(max-width: 576px) 15vw, 190px" fetchpriority="high">
                 <h1 class="home-title">Hi, I'm Asal</h1>
                 <p class="home-subtitle">Graphic & Web Designer, Front-End Developer</p>
                 <p class="home-description">I am a multi-disciplinary designer with a proven track record in Web Development,
@@ -939,7 +956,7 @@
 
     <!-- Scroll to Top Button -->
 
-    <script src="Resources/main.js?v=20260825"></script>
+    <script src="Resources/main.js?v=20260826"></script>
      
 </body>
 </html>
