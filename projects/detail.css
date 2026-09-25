@@ -87,6 +87,12 @@ h1, h2, h3 { color: var(--title); line-height: 1.2; }
 .gallery.print-gallery .gallery-item img { background: #202022; object-fit: contain; }
 .gallery.print-gallery .business-card-showcase img { aspect-ratio: 2 / 3; }
 .caption { background: linear-gradient(transparent, rgba(0,0,0,.8)); bottom: 0; color: white; font-size: .85rem; left: 0; padding: 2rem 1rem 1rem; position: absolute; right: 0; }
+.caption-title, .caption-company { display: block; }
+.caption-title { font-weight: 600; }
+.caption-company { color: rgba(255,255,255,.78); font-size: .72rem; margin-top: .15rem; }
+.project-spotlight { background: var(--surface); border-top: 1px solid var(--border); }
+.project-company { color: var(--accent); font-size: .95rem; font-weight: 600; margin-top: .75rem; }
+.project-services { margin-top: .5rem; }
 .next { background: var(--accent); color: #101018; }
 .next .container { align-items: center; display: flex; gap: 2rem; justify-content: space-between; }
 .next h2 { color: #101018; margin-top: .35rem; }
