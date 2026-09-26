@@ -86,6 +86,9 @@ h1, h2, h3 { color: var(--title); line-height: 1.2; }
 .gallery.print-gallery { grid-template-columns: repeat(2, 1fr); }
 .gallery.print-gallery .gallery-item img { background: #202022; object-fit: contain; }
 .gallery.print-gallery .business-card-showcase img { aspect-ratio: 2 / 3; }
+.gallery.tillbite-gallery { gap: .75rem; grid-template-columns: repeat(4, 1fr); }
+.tillbite-gallery .gallery-item img { aspect-ratio: 16 / 9; object-fit: cover; }
+.product-gallery-section { padding-top: 0; }
 .caption { background: linear-gradient(transparent, rgba(0,0,0,.8)); bottom: 0; color: white; font-size: .85rem; left: 0; padding: 2rem 1rem 1rem; position: absolute; right: 0; }
 .caption-title, .caption-company { display: block; }
 .caption-title { font-weight: 600; }
@@ -155,6 +158,7 @@ h1, h2, h3 { color: var(--title); line-height: 1.2; }
   .hero-grid, .intro-grid { gap: 2.5rem; grid-template-columns: 1fr; }
   .hero { padding-top: 8rem; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery.tillbite-gallery { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (orientation: landscape) and (max-height: 560px) {
@@ -169,6 +173,7 @@ h1, h2, h3 { color: var(--title); line-height: 1.2; }
   .section { padding: 4rem 0; }
   .facts, .gallery { grid-template-columns: 1fr; }
   .gallery.print-gallery { grid-template-columns: 1fr; }
+  .gallery.tillbite-gallery { grid-template-columns: 1fr; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
   .gallery-item.tall img { aspect-ratio: 4 / 3; }
   .gallery-head, .next .container, .footer .container { align-items: flex-start; flex-direction: column; }

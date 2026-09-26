@@ -37,126 +37,38 @@
   </header>
 
   <main>
-    <section class="hero section">
+    <section class="hero compact-hero">
       <div class="container hero-content">
-        <span class="eyebrow">Selected Work</span>
-        <h1>Creative projects built with purpose, detail and a strong visual approach.</h1>
-        <p class="hero-text">Explore a collection of my work across web development, graphic design, branding, multimedia, photography and AI-assisted creativity. Each project reflects my approach to solving design and technical challenges through thoughtful, user-focused solutions.</p>
-        <div class="stats">
-          <div><strong>100+</strong><span>Completed projects</span></div>
-          <div><strong>5+</strong><span>Years of experience</span></div>
-          <div><strong>6</strong><span>Creative disciplines</span></div>
-        </div>
+        <span class="eyebrow">Selected Projects</span>
+        <h1>Explore my work.</h1>
+        <p class="hero-text">Browse selected projects across software, web design, graphic design, video, photography and AI-assisted creativity.</p>
       </div>
     </section>
-
-    <section class="disciplines section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">What you will find here</span>
-          <h2>Work across design, development and digital media</h2>
-        </div>
-        <div class="discipline-grid">
-          <article><i class="uil uil-brackets-curly"></i><h3>Web Development</h3><p>Responsive websites, front-end and full-stack development, database-driven software, mobile applications, WordPress, eCommerce platforms and custom business systems.</p></article>
-          <article><i class="uil uil-swatchbook"></i><h3>Graphic Design</h3><p>Brand identity, social media design, banners, restaurant menus, invitation cards, marketing materials and professional image editing.</p></article>
-          <article><i class="uil uil-video"></i><h3>Video & Multimedia</h3><p>Video editing, motion graphics, colour grading, content creation and social media content creation.</p></article>
-          <article><i class="uil uil-camera"></i><h3>Photography</h3><p>Mobile photography, image editing and visual storytelling.</p></article>
-          <article><i class="uil uil-robot"></i><h3>AI-Assisted Creativity</h3><p>Concept development, image generation, art direction and refinement.</p></article>
-          <article><i class="uil uil-palette"></i><h3>Brand Identity</h3><p>Logo systems, campaign visuals and consistent brand presentation.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="featured section">
-
-    <div class="container">
-
-        <div class="featured-header">
-
-            <span class="eyebrow">
-                Featured Project
-            </span>
-
-            <span class="project-category">
-                Commercial Product · Restaurant POS · Mobile App
-            </span>
-
-            <h2>
-                TillBite Restaurant POS System
-            </h2>
-
-            <p class="featured-intro">
-                A complete commercial restaurant platform currently deployed in a working restaurant.
-            </p>
-
-        </div>
-
-        <div class="featured-image">
-
-            <img
-                src="../Images/TillBite/TillBite.webp"
-                alt="TillBite restaurant POS system with mobile ordering application"
-             width="1254" height="1254" srcset="../Images/responsive/TillBite/TillBite-480.webp 480w, ../Images/responsive/TillBite/TillBite-800.webp 800w, ../Images/responsive/TillBite/TillBite-1200.webp 1200w, ../Images/TillBite/TillBite.webp 1254w" sizes="(max-width: 800px) 100vw, 50vw" fetchpriority="high">
-
-        </div>
-
-        <div class="featured-description">
-
-            <p>
-                TillBite is a full-stack commercial restaurant platform built with a
-                database-driven architecture. It includes a powerful POS system,
-                customer management, phone and online ordering, kitchen printing,
-                payment processing and many other business features.
-            </p>
-
-            <p>
-                The product is currently deployed and operating in a working restaurant
-                as it prepares for wider commercial release. It also provides a dedicated mobile application,
-                allowing customers to browse the menu and place online orders
-                quickly and seamlessly from their smartphones.
-            </p>
-
-            <ul class="tags">
-                <li>ASP.NET</li>
-                <li>C#</li>
-                <li>SQL Server</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-            </ul>
-
-            <a href="tillbite/index.html" class="button">
-
-                Explore TillBite
-
-                <i class="uil uil-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
 
     <section class="projects section" id="all-projects">
       <div class="container">
         <div class="projects-top">
-          <div><span class="eyebrow">All Projects</span><h2>Browse by category</h2></div>
-          <p>Use the filters to explore different areas of my work.</p>
+          <div><span class="eyebrow">Portfolio</span><h2>Browse by category</h2></div>
+          <p>Select a category to reach the work you want to see.</p>
         </div>
 
         <div class="filters" aria-label="Project filters">
           <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="web">Web Development</button>
+          <button class="filter" data-filter="web">Web &amp; Software</button>
           <button class="filter" data-filter="design">Graphic Design</button>
           <button class="filter" data-filter="video">Video & Multimedia</button>
           <button class="filter" data-filter="photo">Photography</button>
           <button class="filter" data-filter="ai">AI Projects</button>
         </div>
 
+        <div class="video-filters" id="video-filters" hidden aria-label="Video project filters">
+          <button class="video-filter active" data-video-filter="all">All Videos</button>
+          <button class="video-filter" data-video-filter="social">Social Media</button>
+          <button class="video-filter" data-video-filter="post">Editing &amp; Post-Production</button>
+        </div>
+
         <div class="project-grid">
-          <article class="project-card" data-category="web"><a href="tillbite/index.html" class="image-wrap"><img src="../Images/TillBite/TillBite.webp" alt="TillBite restaurant POS interface" loading="lazy" decoding="async" width="1254" height="1254" srcset="../Images/responsive/TillBite/TillBite-480.webp 480w, ../Images/responsive/TillBite/TillBite-800.webp 800w, ../Images/responsive/TillBite/TillBite-1200.webp 1200w, ../Images/TillBite/TillBite.webp 1254w" sizes="(max-width: 800px) 100vw, 50vw"></a><div class="card-copy"><span class="project-category">Commercial Product</span><h3>TillBite POS System</h3><p>A complete restaurant POS and management platform deployed in a working restaurant.</p><ul class="tags"><li>ASP.NET</li><li>SQL Server</li></ul><a href="tillbite/index.html" class="text-link">Explore TillBite <i class="uil uil-arrow-right"></i></a></div></article>
+          <article class="project-card featured-card" data-category="web"><a href="tillbite/index.html" class="image-wrap"><span class="featured-badge">Featured</span><img src="../Images/TillBite/TillBite.webp" alt="TillBite restaurant POS interface" loading="eager" decoding="async" width="1254" height="1254" srcset="../Images/responsive/TillBite/TillBite-480.webp 480w, ../Images/responsive/TillBite/TillBite-800.webp 800w, ../Images/responsive/TillBite/TillBite-1200.webp 1200w, ../Images/TillBite/TillBite.webp 1254w" sizes="(max-width: 800px) 100vw, 33vw"></a><div class="card-copy"><span class="project-category">Commercial Product · Web &amp; Software</span><h3>TillBite POS System</h3><p>A complete restaurant POS and management platform deployed in a working restaurant.</p><ul class="tags"><li>ASP.NET</li><li>SQL Server</li></ul><a href="tillbite/index.html" class="text-link">Explore TillBite <i class="uil uil-arrow-right"></i></a></div></article>
 
           <article class="project-card" data-category="design"><a href="pop-street/index.html" class="image-wrap"><img src="../Images/PopStreet/Bulls.webp" alt="Pop Street restaurant menu design" loading="lazy" decoding="async" width="1417" height="997" srcset="../Images/responsive/PopStreet/Bulls-480.webp 480w, ../Images/responsive/PopStreet/Bulls-800.webp 800w, ../Images/responsive/PopStreet/Bulls-1200.webp 1200w, ../Images/PopStreet/Bulls.webp 1417w" sizes="(max-width: 800px) 100vw, 50vw"></a><div class="card-copy"><span class="project-category">Graphic Design</span><h3>Pop Street Birmingham</h3><p>Restaurant menu systems created for Bulls Street Burgers and LuvGreek.</p><ul class="tags"><li>Photoshop</li><li>Menu Design</li></ul><a href="pop-street/index.html" class="text-link">View Project <i class="uil uil-arrow-right"></i></a></div></article>
 
@@ -164,7 +76,17 @@
 
           <article class="project-card" data-category="web"><a href="selected-web-design/index.html" class="image-wrap"><img src="../Images/WebPhoto/WebPages (1).webp" alt="Collection of six independent responsive website projects" loading="lazy" decoding="async" width="1600" height="1060" srcset="../Images/responsive/WebPhoto/WebPages%20(1)-480.webp 480w, ../Images/responsive/WebPhoto/WebPages%20(1)-800.webp 800w, ../Images/responsive/WebPhoto/WebPages%20(1)-1200.webp 1200w, ../Images/WebPhoto/WebPages%20(1).webp 1600w" sizes="(max-width: 800px) 100vw, 50vw"></a><div class="card-copy"><span class="project-category">Web Development · 6 Projects</span><h3>Selected Web Design Projects</h3><p>A collection of six separate websites, each created as an independent project for a different industry.</p><ul class="tags"><li>6 Websites</li><li>Responsive Design</li></ul><a href="selected-web-design/index.html" class="text-link">View 6 Projects <i class="uil uil-arrow-right"></i></a></div></article>
 
-          <article class="project-card" data-category="video"><a href="video-editing/index.html" class="image-wrap"><img src="../Images/LifestyleCover.webp" alt="Video editing and multimedia collection" loading="lazy" decoding="async" width="1390" height="768" srcset="../Images/responsive/LifestyleCover-480.webp 480w, ../Images/responsive/LifestyleCover-800.webp 800w, ../Images/responsive/LifestyleCover-1200.webp 1200w, ../Images/LifestyleCover.webp 1390w" sizes="(max-width: 800px) 100vw, 50vw"></a><div class="card-copy"><span class="project-category">Video & Multimedia</span><h3>Video Editing & Multimedia</h3><p>Colour grading, branded intros and engaging social-media edits.</p><ul class="tags"><li>DaVinci Resolve</li><li>Motion</li></ul><a href="video-editing/index.html" class="text-link">View Collection <i class="uil uil-arrow-right"></i></a></div></article>
+          <article class="project-card video-card" data-category="video" data-video-category="post" data-video="https://drive.google.com/file/d/1EQVmjlUvymog95qSNiT1M1kah8GjP3af/preview"><div class="image-wrap"><img src="../Images/LifestyleCover.webp" alt="Lifestyle and Aesthetic video cover" loading="lazy" decoding="async" width="1390" height="768" srcset="../Images/responsive/LifestyleCover-480.webp 480w, ../Images/responsive/LifestyleCover-800.webp 800w, ../Images/responsive/LifestyleCover-1200.webp 1200w, ../Images/LifestyleCover.webp 1390w" sizes="(max-width: 800px) 100vw, 33vw"></div><div class="card-copy"><span class="project-category">Editing &amp; Post-Production</span><h3>Lifestyle &amp; Aesthetic</h3><p>Professional colour grading that transforms raw interior footage into a warm cinematic space.</p><div class="video-card-actions"><button class="video-action view-video" type="button">View Video</button><button class="video-action secondary view-details" type="button">View Details</button></div><div class="video-detail-content" hidden><span class="eyebrow">Video project · July 2024</span><h2>Lifestyle &amp; Aesthetic</h2><p>A professional colour grading showcase transforming raw interior footage into a warm, inviting cinematic space. The edit focuses on dynamic-range recovery, natural skin tones and sunlight enhancement.</p><div class="detail-facts"><div><strong>Date</strong>July 2024</div><div><strong>Tools</strong>DaVinci Resolve / Colour Correction Nodes</div><div><strong>Role</strong>Video Editor</div></div></div></div></article>
+
+          <article class="project-card video-card" data-category="video" data-video-category="social" data-video="https://drive.google.com/file/d/1DADLMyizaCCDGPr9hmHCIXidoxMYuhZn/preview"><div class="image-wrap"><img src="../Images/intro.webp" alt="Podcast and Media Channel Intro video cover" loading="lazy" decoding="async" width="1364" height="768" srcset="../Images/responsive/intro-480.webp 480w, ../Images/responsive/intro-800.webp 800w, ../Images/responsive/intro-1200.webp 1200w, ../Images/intro.webp 1364w" sizes="(max-width: 800px) 100vw, 33vw"></div><div class="card-copy"><span class="project-category">Social Media Video</span><h3>Podcast &amp; Media Channel Intro</h3><span class="video-client">AzNegahiDigar Channel</span><p>A high-energy branded introduction combining motion graphics with synchronised sound design.</p><div class="video-card-actions"><button class="video-action view-video" type="button">View Video</button><button class="video-action secondary view-details" type="button">View Details</button></div><div class="video-detail-content" hidden><span class="eyebrow">Video project · March 2026</span><h2>Podcast &amp; Media Channel Intro</h2><span class="detail-client">AzNegahiDigar Channel</span><p>A creative, high-energy introduction designed to establish a strong brand identity. Synced audio visualisation, custom sound design and clean motion graphics are precisely timed to audio cues to capture attention and create a professional first impression.</p><div class="detail-facts"><div><strong>Channel</strong>AzNegahiDigar</div><div><strong>Date</strong>March 2026</div><div><strong>Tools</strong>Motion Graphics / Canva / Professional Sound Design</div><div><strong>Role</strong>Motion Designer, Video Editor &amp; Sound Editor</div></div></div></div></article>
+
+          <article class="project-card video-card" data-category="video" data-video-category="post" data-video="https://drive.google.com/file/d/10QqtwuwY1sOTSx_n8hoeMoAfhBVu4zQi/preview"><div class="image-wrap"><img src="../Images/pro2cover.webp" alt="Cinematic Grade Before and After video cover" loading="lazy" decoding="async" width="1364" height="768" srcset="../Images/responsive/pro2cover-480.webp 480w, ../Images/responsive/pro2cover-800.webp 800w, ../Images/responsive/pro2cover-1200.webp 1200w, ../Images/pro2cover.webp 1364w" sizes="(max-width: 800px) 100vw, 33vw"></div><div class="card-copy"><span class="project-category">Editing &amp; Post-Production</span><h3>Cinematic Grade: Before/After</h3><p>A before-and-after showcase focused on cinematic colour, highlights and natural skin tones.</p><div class="video-card-actions"><button class="video-action view-video" type="button">View Video</button><button class="video-action secondary view-details" type="button">View Details</button></div><div class="video-detail-content" hidden><span class="eyebrow">Video project · January 2022</span><h2>Cinematic Grade: Before/After</h2><p>A professional before-and-after showcase using cinematic colour grading. The project transforms raw footage into a high-contrast visual experience, focusing on highlight recovery and skin-tone preservation to demonstrate the power of professional post-production.</p><div class="detail-facts"><div><strong>Date</strong>January 2022</div><div><strong>Tools</strong>Wondershare Filmora / Masking</div><div><strong>Role</strong>Colourist</div></div></div></div></article>
+
+          <article class="project-card video-card" data-category="video" data-video-category="social" data-video="https://drive.google.com/file/d/1TcG7M2iXbEm1bACKyQVsRrYPHiv2tJu8/preview"><div class="image-wrap"><img src="../Images/HobbyCover.webp" alt="High-Engagement Instagram Story video cover" loading="lazy" decoding="async" width="1364" height="768" srcset="../Images/responsive/HobbyCover-480.webp 480w, ../Images/responsive/HobbyCover-800.webp 800w, ../Images/responsive/HobbyCover-1200.webp 1200w, ../Images/HobbyCover.webp 1364w" sizes="(max-width: 800px) 100vw, 33vw"></div><div class="card-copy"><span class="project-category">Social Media Video</span><h3>High-Engagement Instagram Story</h3><span class="video-client">photography_asal_ Instagram Page</span><p>An Instagram Story edit using AI-driven motion and transitions to turn photography into video.</p><div class="video-card-actions"><button class="video-action view-video" type="button">View Video</button><button class="video-action secondary view-details" type="button">View Details</button></div><div class="video-detail-content" hidden><span class="eyebrow">Video project · March 2024</span><h2>High-Engagement Instagram Story</h2><span class="detail-client">photography_asal_ Instagram Page</span><p>A creative social-media edit designed to transform static photography into dynamic, thumb-stopping video content. AI-driven motion and seamless transitions optimise the piece for Instagram Stories, supporting viewer retention and brand engagement.</p><div class="detail-facts"><div><strong>Instagram Page</strong>photography_asal_</div><div><strong>Date</strong>March 2024</div><div><strong>Tools</strong>Luma AI / Filmora / InShot / Picsart</div><div><strong>Role</strong>Content Creator &amp; Video Editor</div></div></div></div></article>
+
+          <article class="project-card video-card" data-category="video" data-video-category="post" data-video="https://drive.google.com/file/d/1bMbiGKRvSZGr2RRvvCb-KBfM5PvRcl7j/preview"><div class="image-wrap"><img src="../Images/meandmygolf.webp" alt="Me and My Golf coaching edit video cover" loading="lazy" decoding="async" width="1413" height="768" srcset="../Images/responsive/meandmygolf-480.webp 480w, ../Images/responsive/meandmygolf-800.webp 800w, ../Images/responsive/meandmygolf-1200.webp 1200w, ../Images/meandmygolf.webp 1413w" sizes="(max-width: 800px) 100vw, 33vw"></div><div class="card-copy"><span class="project-category">Editing &amp; Post-Production</span><h3>Golf Coaching Edit</h3><span class="video-client">Me and My Golf</span><p>A fast-paced educational coaching edit balancing technical instruction with engaging visuals.</p><div class="video-card-actions"><button class="video-action view-video" type="button">View Video</button><button class="video-action secondary view-details" type="button">View Details</button></div><div class="video-detail-content" hidden><span class="eyebrow">Video project · April 2026</span><h2>Golf Coaching Edit</h2><span class="detail-client">Me and My Golf</span><p>A high-energy educational video edit created for Me and My Golf, focused on improving iron ball striking. The project transforms raw coaching footage into an engaging social-media asset that balances technical instruction with clear, dynamic visuals.</p><div class="detail-facts"><div><strong>Company</strong>Me and My Golf</div><div><strong>Date</strong>April 2026</div><div><strong>Tools</strong>Wondershare Filmora</div><div><strong>Role</strong>Motion Graphics, Audio Mastering &amp; Multi-cam Editing</div></div></div></div></article>
+
+          <article class="project-card video-card" data-category="video" data-video-category="social" data-video="https://drive.google.com/file/d/1eXRTidR0DbN5khnzo4hoXPHoN9gAnWOU/preview"><div class="image-wrap"><img src="../Images/Ecommerce/ecommerce-promotional-video.webp" alt="E-commerce Promotional Video cover" loading="lazy" decoding="async" width="1672" height="941" srcset="../Images/responsive/Ecommerce/ecommerce-promotional-video-480.webp 480w, ../Images/responsive/Ecommerce/ecommerce-promotional-video-800.webp 800w, ../Images/responsive/Ecommerce/ecommerce-promotional-video-1200.webp 1200w, ../Images/Ecommerce/ecommerce-promotional-video.webp 1672w" sizes="(max-width: 800px) 100vw, 33vw"></div><div class="card-copy"><span class="project-category">Social Media Video</span><h3>E-commerce Promotional Video</h3><span class="video-client">Robert Scotts Commerce Ltd</span><p>A promotional social-media edit combining motion graphics, captions, colour and sound design.</p><div class="video-card-actions"><button class="video-action view-video" type="button">View Video</button><button class="video-action secondary view-details" type="button">View Details</button></div><div class="video-detail-content" hidden><span class="eyebrow">Video project · 23 September 2026</span><h2>E-commerce Promotional Video</h2><span class="detail-client">Robert Scotts Commerce Ltd</span><p>A creative promotional video produced for Robert Scotts Commerce Ltd using footage supplied by the company. The edit was developed for social-media publishing and audience engagement, with full creative direction across pacing, colour grading, motion graphics, captions, music, sound effects and sound design.</p><div class="detail-facts"><div><strong>Company</strong>Robert Scotts Commerce Ltd</div><div><strong>Date</strong>23 September 2026</div><div><strong>Tools</strong>CapCut &amp; Wondershare Filmora</div><div><strong>Role</strong>Video Editor &amp; Motion Designer</div></div></div></div></article>
 
           <article class="project-card" data-category="design"><a href="brand-identity/index.html" class="image-wrap"><img src="../Images/negahlogo.webp" alt="Brand identity and logo design collection" loading="lazy" decoding="async" width="1364" height="768" srcset="../Images/responsive/negahlogo-480.webp 480w, ../Images/responsive/negahlogo-800.webp 800w, ../Images/responsive/negahlogo-1200.webp 1200w, ../Images/negahlogo.webp 1364w" sizes="(max-width: 800px) 100vw, 50vw"></a><div class="card-copy"><span class="project-category">Graphic Design</span><h3>Brand Identity & Logo Design</h3><p>Identity concepts designed for digital platforms and technology.</p><ul class="tags"><li>Illustrator</li><li>Identity</li></ul><a href="brand-identity/index.html" class="text-link">View Collection <i class="uil uil-arrow-right"></i></a></div></article>
 
